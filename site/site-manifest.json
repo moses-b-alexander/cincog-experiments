@@ -1,0 +1,60 @@
+{
+  "release": "0.1.1",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "app.js",
+      "sha256": "209549112b09da45fca49fb537e1f257fc5124600aef443bd75d8972ae2d4b16",
+      "bytes": 8489
+    },
+    {
+      "path": "data.js",
+      "sha256": "0d47a5cef6fa592e7ae50f21e25a15bf658b48ff475a03b9d27cc2ebdfd47772",
+      "bytes": 41456
+    },
+    {
+      "path": "data.json",
+      "sha256": "bdad1ea0871539b1fc6a45411625b899cc1afc45972f7da3c5c37e263543d77b",
+      "bytes": 64318
+    },
+    {
+      "path": "downloads/cincog-v0.1.1-reproduce.zip",
+      "sha256": "858e23d63a678f3b6e3bc991dc47fb23fccf92a1d69141e127733a8dd46d0b98",
+      "bytes": 777332
+    },
+    {
+      "path": "downloads/SHA256SUMS.txt",
+      "sha256": "34259f2126da01c9d3f7074620ed6ba92455aa55739077cd2cccaa865ebbb183",
+      "bytes": 95
+    },
+    {
+      "path": "evidence/c4-kev.json",
+      "sha256": "703a781f63e53d967c9ea65d7d342ded69f7fa2a1a6872be2139a5cc8e8eb07a",
+      "bytes": 109894
+    },
+    {
+      "path": "evidence/manifest.json",
+      "sha256": "dcb3cf561bb32558309edc4d4f978904f87b6fad53ab6550beeef2a52bd516da",
+      "bytes": 20920
+    },
+    {
+      "path": "evidence/provenance.json",
+      "sha256": "9ba934160d9b13a690ba552bf9c0c802770b6cabf0a64f34f67df1c84a6a1dfc",
+      "bytes": 5480
+    },
+    {
+      "path": "index.html",
+      "sha256": "f1b305740ba5f334426ed58f4137df804faf38a577c8501f056bef6e44026782",
+      "bytes": 13059
+    },
+    {
+      "path": "styles.css",
+      "sha256": "ca0583cc0a111083ab9792477f273ae8ee2d3f206420c38e71588b96adf5fc03",
+      "bytes": 11255
+    }
+  ]
+}

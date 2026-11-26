@@ -1,0 +1,2454 @@
+{
+  "format": "cincog.study.v1",
+  "config": {
+    "name": "c4",
+    "workflow": "studies.c4",
+    "version": "1",
+    "framework_version": "0.1.0",
+    "workflow_sha256": "93eb918da72199291f87ff6f656169f9cf5649a58654b5e483ae1269e8f519e2",
+    "entry": {
+      "workflow": "studies.c4",
+      "version": "1",
+      "parameters": {},
+      "provider": {
+        "kind": "systemone",
+        "model": "kev:0.8b-q8_0",
+        "selection": "argmax",
+        "seed": 61101
+      },
+      "assignments": [
+        {}
+      ]
+    },
+    "protocol": {
+      "attempt_limit": 2,
+      "effect": "Only an admitted command may trigger a Session.perform effect.",
+      "seed_schedule": "base participant seed plus zero-based assignment index"
+    },
+    "assignments": [
+      {
+        "id": "c4/1",
+        "settings": {
+          "word_bank": [
+            "baseball",
+            "baseband",
+            "baseline",
+            "bluebird",
+            "bluefish",
+            "bookcase",
+            "bookworm",
+            "fireball",
+            "firewood",
+            "firework",
+            "football",
+            "foothill",
+            "foothold",
+            "footwork",
+            "handball",
+            "handhold",
+            "handmaid",
+            "handwork",
+            "hardball",
+            "hardline",
+            "hardwood",
+            "highball",
+            "highland",
+            "kingbird",
+            "kingfish",
+            "kingship",
+            "milkfish",
+            "milkmaid",
+            "milkwood",
+            "moonfish",
+            "moonless",
+            "pipefish",
+            "pipeline",
+            "pipework",
+            "rainband",
+            "raindrop",
+            "rainfall",
+            "rainless",
+            "rockfall",
+            "rockfish",
+            "rockwork",
+            "rosefish",
+            "rosewood",
+            "sailboat",
+            "sailfish",
+            "sandbank",
+            "sandfish",
+            "sandhill",
+            "sandworm",
+            "showboat",
+            "showcase",
+            "snowball",
+            "snowbank",
+            "snowbird",
+            "snowdrop",
+            "snowfall",
+            "softball",
+            "softwood",
+            "starfish",
+            "starship",
+            "tilefish",
+            "tilework",
+            "woodland",
+            "woodwork"
+          ],
+          "arms": [
+            "whole",
+            "elide_first",
+            "elide_second",
+            "alternating"
+          ],
+          "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly."
+        },
+        "design": {
+          "state": {
+            "sender_choices_per_assignment": 1,
+            "ordered_bank": [
+              "baseball",
+              "baseband",
+              "baseline",
+              "bluebird",
+              "bluefish",
+              "bookcase",
+              "bookworm",
+              "fireball",
+              "firewood",
+              "firework",
+              "football",
+              "foothill",
+              "foothold",
+              "footwork",
+              "handball",
+              "handhold",
+              "handmaid",
+              "handwork",
+              "hardball",
+              "hardline",
+              "hardwood",
+              "highball",
+              "highland",
+              "kingbird",
+              "kingfish",
+              "kingship",
+              "milkfish",
+              "milkmaid",
+              "milkwood",
+              "moonfish",
+              "moonless",
+              "pipefish",
+              "pipeline",
+              "pipework",
+              "rainband",
+              "raindrop",
+              "rainfall",
+              "rainless",
+              "rockfall",
+              "rockfish",
+              "rockwork",
+              "rosefish",
+              "rosewood",
+              "sailboat",
+              "sailfish",
+              "sandbank",
+              "sandfish",
+              "sandhill",
+              "sandworm",
+              "showboat",
+              "showcase",
+              "snowball",
+              "snowbank",
+              "snowbird",
+              "snowdrop",
+              "snowfall",
+              "softball",
+              "softwood",
+              "starfish",
+              "starship",
+              "tilefish",
+              "tilework",
+              "woodland",
+              "woodwork"
+            ],
+            "host_only": [
+              "target and condition identity at the receiver"
+            ]
+          },
+          "roles": {
+            "A": {
+              "request": {
+                "role": "A",
+                "observation": {
+                  "role": "A",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ]
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              }
+            },
+            "C": {
+              "example_requests": {
+                "whole": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "baseball"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  },
+                  "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                  "schema": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "action": {
+                            "const": "choose_word"
+                          },
+                          "args": {
+                            "type": "object",
+                            "properties": {
+                              "word": {
+                                "type": "string",
+                                "enum": [
+                                  "baseball",
+                                  "baseband",
+                                  "baseline",
+                                  "bluebird",
+                                  "bluefish",
+                                  "bookcase",
+                                  "bookworm",
+                                  "fireball",
+                                  "firewood",
+                                  "firework",
+                                  "football",
+                                  "foothill",
+                                  "foothold",
+                                  "footwork",
+                                  "handball",
+                                  "handhold",
+                                  "handmaid",
+                                  "handwork",
+                                  "hardball",
+                                  "hardline",
+                                  "hardwood",
+                                  "highball",
+                                  "highland",
+                                  "kingbird",
+                                  "kingfish",
+                                  "kingship",
+                                  "milkfish",
+                                  "milkmaid",
+                                  "milkwood",
+                                  "moonfish",
+                                  "moonless",
+                                  "pipefish",
+                                  "pipeline",
+                                  "pipework",
+                                  "rainband",
+                                  "raindrop",
+                                  "rainfall",
+                                  "rainless",
+                                  "rockfall",
+                                  "rockfish",
+                                  "rockwork",
+                                  "rosefish",
+                                  "rosewood",
+                                  "sailboat",
+                                  "sailfish",
+                                  "sandbank",
+                                  "sandfish",
+                                  "sandhill",
+                                  "sandworm",
+                                  "showboat",
+                                  "showcase",
+                                  "snowball",
+                                  "snowbank",
+                                  "snowbird",
+                                  "snowdrop",
+                                  "snowfall",
+                                  "softball",
+                                  "softwood",
+                                  "starfish",
+                                  "starship",
+                                  "tilefish",
+                                  "tilework",
+                                  "woodland",
+                                  "woodwork"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "word"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "action",
+                          "args"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "elide_first": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "ball"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  },
+                  "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                  "schema": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "action": {
+                            "const": "choose_word"
+                          },
+                          "args": {
+                            "type": "object",
+                            "properties": {
+                              "word": {
+                                "type": "string",
+                                "enum": [
+                                  "baseball",
+                                  "baseband",
+                                  "baseline",
+                                  "bluebird",
+                                  "bluefish",
+                                  "bookcase",
+                                  "bookworm",
+                                  "fireball",
+                                  "firewood",
+                                  "firework",
+                                  "football",
+                                  "foothill",
+                                  "foothold",
+                                  "footwork",
+                                  "handball",
+                                  "handhold",
+                                  "handmaid",
+                                  "handwork",
+                                  "hardball",
+                                  "hardline",
+                                  "hardwood",
+                                  "highball",
+                                  "highland",
+                                  "kingbird",
+                                  "kingfish",
+                                  "kingship",
+                                  "milkfish",
+                                  "milkmaid",
+                                  "milkwood",
+                                  "moonfish",
+                                  "moonless",
+                                  "pipefish",
+                                  "pipeline",
+                                  "pipework",
+                                  "rainband",
+                                  "raindrop",
+                                  "rainfall",
+                                  "rainless",
+                                  "rockfall",
+                                  "rockfish",
+                                  "rockwork",
+                                  "rosefish",
+                                  "rosewood",
+                                  "sailboat",
+                                  "sailfish",
+                                  "sandbank",
+                                  "sandfish",
+                                  "sandhill",
+                                  "sandworm",
+                                  "showboat",
+                                  "showcase",
+                                  "snowball",
+                                  "snowbank",
+                                  "snowbird",
+                                  "snowdrop",
+                                  "snowfall",
+                                  "softball",
+                                  "softwood",
+                                  "starfish",
+                                  "starship",
+                                  "tilefish",
+                                  "tilework",
+                                  "woodland",
+                                  "woodwork"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "word"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "action",
+                          "args"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "elide_second": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "base"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  },
+                  "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                  "schema": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "action": {
+                            "const": "choose_word"
+                          },
+                          "args": {
+                            "type": "object",
+                            "properties": {
+                              "word": {
+                                "type": "string",
+                                "enum": [
+                                  "baseball",
+                                  "baseband",
+                                  "baseline",
+                                  "bluebird",
+                                  "bluefish",
+                                  "bookcase",
+                                  "bookworm",
+                                  "fireball",
+                                  "firewood",
+                                  "firework",
+                                  "football",
+                                  "foothill",
+                                  "foothold",
+                                  "footwork",
+                                  "handball",
+                                  "handhold",
+                                  "handmaid",
+                                  "handwork",
+                                  "hardball",
+                                  "hardline",
+                                  "hardwood",
+                                  "highball",
+                                  "highland",
+                                  "kingbird",
+                                  "kingfish",
+                                  "kingship",
+                                  "milkfish",
+                                  "milkmaid",
+                                  "milkwood",
+                                  "moonfish",
+                                  "moonless",
+                                  "pipefish",
+                                  "pipeline",
+                                  "pipework",
+                                  "rainband",
+                                  "raindrop",
+                                  "rainfall",
+                                  "rainless",
+                                  "rockfall",
+                                  "rockfish",
+                                  "rockwork",
+                                  "rosefish",
+                                  "rosewood",
+                                  "sailboat",
+                                  "sailfish",
+                                  "sandbank",
+                                  "sandfish",
+                                  "sandhill",
+                                  "sandworm",
+                                  "showboat",
+                                  "showcase",
+                                  "snowball",
+                                  "snowbank",
+                                  "snowbird",
+                                  "snowdrop",
+                                  "snowfall",
+                                  "softball",
+                                  "softwood",
+                                  "starfish",
+                                  "starship",
+                                  "tilefish",
+                                  "tilework",
+                                  "woodland",
+                                  "woodwork"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "word"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "action",
+                          "args"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "alternating": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "bsbl"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  },
+                  "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                  "schema": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "action": {
+                            "const": "choose_word"
+                          },
+                          "args": {
+                            "type": "object",
+                            "properties": {
+                              "word": {
+                                "type": "string",
+                                "enum": [
+                                  "baseball",
+                                  "baseband",
+                                  "baseline",
+                                  "bluebird",
+                                  "bluefish",
+                                  "bookcase",
+                                  "bookworm",
+                                  "fireball",
+                                  "firewood",
+                                  "firework",
+                                  "football",
+                                  "foothill",
+                                  "foothold",
+                                  "footwork",
+                                  "handball",
+                                  "handhold",
+                                  "handmaid",
+                                  "handwork",
+                                  "hardball",
+                                  "hardline",
+                                  "hardwood",
+                                  "highball",
+                                  "highland",
+                                  "kingbird",
+                                  "kingfish",
+                                  "kingship",
+                                  "milkfish",
+                                  "milkmaid",
+                                  "milkwood",
+                                  "moonfish",
+                                  "moonless",
+                                  "pipefish",
+                                  "pipeline",
+                                  "pipework",
+                                  "rainband",
+                                  "raindrop",
+                                  "rainfall",
+                                  "rainless",
+                                  "rockfall",
+                                  "rockfish",
+                                  "rockwork",
+                                  "rosefish",
+                                  "rosewood",
+                                  "sailboat",
+                                  "sailfish",
+                                  "sandbank",
+                                  "sandfish",
+                                  "sandhill",
+                                  "sandworm",
+                                  "showboat",
+                                  "showcase",
+                                  "snowball",
+                                  "snowbank",
+                                  "snowbird",
+                                  "snowdrop",
+                                  "snowfall",
+                                  "softball",
+                                  "softwood",
+                                  "starfish",
+                                  "starship",
+                                  "tilefish",
+                                  "tilework",
+                                  "woodland",
+                                  "woodwork"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "word"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "action",
+                          "args"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "streams": {
+            "shared": [
+              "A"
+            ],
+            "whole": [
+              "C"
+            ],
+            "elide_first": [
+              "C"
+            ],
+            "elide_second": [
+              "C"
+            ],
+            "alternating": [
+              "C"
+            ]
+          },
+          "interventions": {
+            "whole": {
+              "example_target": "baseball",
+              "example_delivery": "baseball"
+            },
+            "elide_first": {
+              "example_target": "baseball",
+              "example_delivery": "ball"
+            },
+            "elide_second": {
+              "example_target": "baseball",
+              "example_delivery": "base"
+            },
+            "alternating": {
+              "example_target": "baseball",
+              "example_delivery": "bsbl"
+            }
+          },
+          "outcome": {
+            "metric": "exact recovery",
+            "unit": "one sender choice",
+            "comparison": "each alternate minus whole on jointly observed branches",
+            "missing": "Sender failure leaves every branch missing. A failed receiver contributes no score."
+          }
+        },
+        "agents": {
+          "A": {
+            "kind": "systemone",
+            "selection": "argmax",
+            "seed": 61101,
+            "model": "kev:0.8b-q8_0"
+          },
+          "C": {
+            "kind": "systemone",
+            "selection": "argmax",
+            "seed": 61101,
+            "model": "kev:0.8b-q8_0"
+          }
+        }
+      }
+    ]
+  },
+  "trials": [
+    {
+      "id": "c4/1",
+      "decisions": [
+        {
+          "id": "C4/A",
+          "status": "accepted",
+          "attempts": [
+            {
+              "request": {
+                "role": "A",
+                "observation": {
+                  "role": "A",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ]
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "attempt": 1
+              },
+              "raw": "{\"action\":\"choose_word\",\"args\":{\"word\":\"baseline\"}}"
+            }
+          ],
+          "action": {
+            "action": "choose_word",
+            "args": {
+              "word": "baseline"
+            }
+          }
+        },
+        {
+          "id": "C4/C/whole",
+          "status": "accepted",
+          "attempts": [
+            {
+              "request": {
+                "role": "C",
+                "observation": {
+                  "role": "C",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ],
+                  "fragment": "baseline"
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "attempt": 1
+              },
+              "raw": "{\"action\":\"choose_word\",\"args\":{\"word\":\"baseline\"}}"
+            }
+          ],
+          "action": {
+            "action": "choose_word",
+            "args": {
+              "word": "baseline"
+            }
+          }
+        },
+        {
+          "id": "C4/C/elide_first",
+          "status": "accepted",
+          "attempts": [
+            {
+              "request": {
+                "role": "C",
+                "observation": {
+                  "role": "C",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ],
+                  "fragment": "line"
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "attempt": 1
+              },
+              "raw": "{\"action\":\"choose_word\",\"args\":{\"word\":\"baseline\"}}"
+            }
+          ],
+          "action": {
+            "action": "choose_word",
+            "args": {
+              "word": "baseline"
+            }
+          }
+        },
+        {
+          "id": "C4/C/elide_second",
+          "status": "accepted",
+          "attempts": [
+            {
+              "request": {
+                "role": "C",
+                "observation": {
+                  "role": "C",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ],
+                  "fragment": "base"
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "attempt": 1
+              },
+              "raw": "{\"action\":\"choose_word\",\"args\":{\"word\":\"baseline\"}}"
+            }
+          ],
+          "action": {
+            "action": "choose_word",
+            "args": {
+              "word": "baseline"
+            }
+          }
+        },
+        {
+          "id": "C4/C/alternating",
+          "status": "accepted",
+          "attempts": [
+            {
+              "request": {
+                "role": "C",
+                "observation": {
+                  "role": "C",
+                  "possible_deliveries": [
+                    "whole",
+                    "elide_first",
+                    "elide_second",
+                    "alternating"
+                  ],
+                  "fragment": "bsln"
+                },
+                "objective": {
+                  "metric": "exact_recovery",
+                  "direction": "maximize",
+                  "horizon": 1
+                },
+                "instruction": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "const": "choose_word"
+                        },
+                        "args": {
+                          "type": "object",
+                          "properties": {
+                            "word": {
+                              "type": "string",
+                              "enum": [
+                                "baseball",
+                                "baseband",
+                                "baseline",
+                                "bluebird",
+                                "bluefish",
+                                "bookcase",
+                                "bookworm",
+                                "fireball",
+                                "firewood",
+                                "firework",
+                                "football",
+                                "foothill",
+                                "foothold",
+                                "footwork",
+                                "handball",
+                                "handhold",
+                                "handmaid",
+                                "handwork",
+                                "hardball",
+                                "hardline",
+                                "hardwood",
+                                "highball",
+                                "highland",
+                                "kingbird",
+                                "kingfish",
+                                "kingship",
+                                "milkfish",
+                                "milkmaid",
+                                "milkwood",
+                                "moonfish",
+                                "moonless",
+                                "pipefish",
+                                "pipeline",
+                                "pipework",
+                                "rainband",
+                                "raindrop",
+                                "rainfall",
+                                "rainless",
+                                "rockfall",
+                                "rockfish",
+                                "rockwork",
+                                "rosefish",
+                                "rosewood",
+                                "sailboat",
+                                "sailfish",
+                                "sandbank",
+                                "sandfish",
+                                "sandhill",
+                                "sandworm",
+                                "showboat",
+                                "showcase",
+                                "snowball",
+                                "snowbank",
+                                "snowbird",
+                                "snowdrop",
+                                "snowfall",
+                                "softball",
+                                "softwood",
+                                "starfish",
+                                "starship",
+                                "tilefish",
+                                "tilework",
+                                "woodland",
+                                "woodwork"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "word"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "args"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "attempt": 1
+              },
+              "raw": "{\"action\":\"choose_word\",\"args\":{\"word\":\"baseball\"}}"
+            }
+          ],
+          "action": {
+            "action": "choose_word",
+            "args": {
+              "word": "baseball"
+            }
+          }
+        }
+      ],
+      "result": {
+        "word": "baseline",
+        "arms": {
+          "whole": {
+            "fragment": "baseline",
+            "guess": "baseline",
+            "score": true
+          },
+          "elide_first": {
+            "fragment": "line",
+            "guess": "baseline",
+            "score": true
+          },
+          "elide_second": {
+            "fragment": "base",
+            "guess": "baseline",
+            "score": true
+          },
+          "alternating": {
+            "fragment": "bsln",
+            "guess": "baseball",
+            "score": false
+          }
+        }
+      },
+      "receipts": {
+        "shared": {
+          "A": [
+            {
+              "body": {
+                "model": "kev:0.8b-q8_0",
+                "state": {
+                  "role": "A",
+                  "observation": {
+                    "role": "A",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ]
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  }
+                },
+                "questions": {
+                  "decision": {
+                    "type": "choice",
+                    "instructions": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                    "criteria": {
+                      "baseball": null,
+                      "baseband": null,
+                      "baseline": null,
+                      "bluebird": null,
+                      "bluefish": null,
+                      "bookcase": null,
+                      "bookworm": null,
+                      "fireball": null,
+                      "firewood": null,
+                      "firework": null,
+                      "football": null,
+                      "foothill": null,
+                      "foothold": null,
+                      "footwork": null,
+                      "handball": null,
+                      "handhold": null,
+                      "handmaid": null,
+                      "handwork": null,
+                      "hardball": null,
+                      "hardline": null,
+                      "hardwood": null,
+                      "highball": null,
+                      "highland": null,
+                      "kingbird": null,
+                      "kingfish": null,
+                      "kingship": null,
+                      "milkfish": null,
+                      "milkmaid": null,
+                      "milkwood": null,
+                      "moonfish": null,
+                      "moonless": null,
+                      "pipefish": null,
+                      "pipeline": null,
+                      "pipework": null,
+                      "rainband": null,
+                      "raindrop": null,
+                      "rainfall": null,
+                      "rainless": null,
+                      "rockfall": null,
+                      "rockfish": null,
+                      "rockwork": null,
+                      "rosefish": null,
+                      "rosewood": null,
+                      "sailboat": null,
+                      "sailfish": null,
+                      "sandbank": null,
+                      "sandfish": null,
+                      "sandhill": null,
+                      "sandworm": null,
+                      "showboat": null,
+                      "showcase": null,
+                      "snowball": null,
+                      "snowbank": null,
+                      "snowbird": null,
+                      "snowdrop": null,
+                      "snowfall": null,
+                      "softball": null,
+                      "softwood": null,
+                      "starfish": null,
+                      "starship": null,
+                      "tilefish": null,
+                      "tilework": null,
+                      "woodland": null,
+                      "woodwork": null
+                    }
+                  }
+                }
+              },
+              "status": 200,
+              "response": "{\"model\":\"kev:0.8b-q8_0\",\"answers\":{\"decision\":{\"type\":\"choice\",\"choice\":\"baseline\",\"probabilities\":{\"baseball\":0.06740182864072877,\"baseband\":0.024092891943721093,\"baseline\":0.07752079296074949,\"bluebird\":0.05686112545834277,\"bluefish\":0.017079418159683675,\"bookcase\":0.01995094147485909,\"bookworm\":0.037850336700642466,\"fireball\":0.017029350873105094,\"firewood\":0.02512945818316051,\"firework\":0.013679166811645176,\"football\":0.01992866865968666,\"foothill\":0.019243026251296706,\"foothold\":0.012907881975924393,\"footwork\":0.02401592491587495,\"handball\":0.007153730334816796,\"handhold\":0.008443596231624146,\"handmaid\":0.011233776161100358,\"handwork\":0.016565847331874523,\"hardball\":0.01080630690541281,\"hardline\":0.016027172823324498,\"hardwood\":0.009756088781333135,\"highball\":0.007000738954760102,\"highland\":0.008101410150360153,\"kingbird\":0.013116987751778397,\"kingfish\":0.013922667788285744,\"kingship\":0.010069064714503818,\"milkfish\":0.01192523302914105,\"milkmaid\":0.008470183258301813,\"milkwood\":0.013518043634883794,\"moonfish\":0.010539002627358355,\"moonless\":0.008932637833152795,\"pipefish\":0.01042782932069255,\"pipeline\":0.008075713686238755,\"pipework\":0.009268633980466408,\"rainband\":0.008574256081754085,\"raindrop\":0.012872865270949871,\"rainfall\":0.01019725950837651,\"rainless\":0.011973118313436396,\"rockfall\":0.008025652259789415,\"rockfish\":0.012167643696988997,\"rockwork\":0.013136814122534611,\"rosefish\":0.010910204435988785,\"rosewood\":0.017046023639655117,\"sailboat\":0.009590320747414532,\"sailfish\":0.013627653040456553,\"sandbank\":0.010894169357716348,\"sandfish\":0.017050017157990868,\"sandhill\":0.0074366257289797165,\"sandworm\":0.014219110890228094,\"showboat\":0.007570669859722311,\"showcase\":0.009912971827722217,\"snowball\":0.010405285428191748,\"snowbank\":0.00839385686195833,\"snowbird\":0.01279016579537128,\"snowdrop\":0.010562118989601901,\"snowfall\":0.009198219829007573,\"softball\":0.0136084161343344,\"softwood\":0.010820570994627153,\"starfish\":0.015306525888794801,\"starship\":0.010143929355324205,\"tilefish\":0.009803134150716814,\"tilework\":0.017419621749497606,\"woodland\":0.01244822043109817,\"woodwork\":0.017849080142940454},\"confidence\":0.06287826586488837}},\"usage\":{\"input_tokens\":380,\"output_tokens\":0}}",
+              "resolved_model": "kev:0.8b-q8_0",
+              "reported_choice": "baseline",
+              "selected_option": "baseline",
+              "probabilities": {
+                "baseball": 0.06740182864072877,
+                "baseband": 0.024092891943721093,
+                "baseline": 0.07752079296074949,
+                "bluebird": 0.05686112545834277,
+                "bluefish": 0.017079418159683675,
+                "bookcase": 0.01995094147485909,
+                "bookworm": 0.037850336700642466,
+                "fireball": 0.017029350873105094,
+                "firewood": 0.02512945818316051,
+                "firework": 0.013679166811645176,
+                "football": 0.01992866865968666,
+                "foothill": 0.019243026251296706,
+                "foothold": 0.012907881975924393,
+                "footwork": 0.02401592491587495,
+                "handball": 0.007153730334816796,
+                "handhold": 0.008443596231624146,
+                "handmaid": 0.011233776161100358,
+                "handwork": 0.016565847331874523,
+                "hardball": 0.01080630690541281,
+                "hardline": 0.016027172823324498,
+                "hardwood": 0.009756088781333135,
+                "highball": 0.007000738954760102,
+                "highland": 0.008101410150360153,
+                "kingbird": 0.013116987751778397,
+                "kingfish": 0.013922667788285744,
+                "kingship": 0.010069064714503818,
+                "milkfish": 0.01192523302914105,
+                "milkmaid": 0.008470183258301813,
+                "milkwood": 0.013518043634883794,
+                "moonfish": 0.010539002627358355,
+                "moonless": 0.008932637833152795,
+                "pipefish": 0.01042782932069255,
+                "pipeline": 0.008075713686238755,
+                "pipework": 0.009268633980466408,
+                "rainband": 0.008574256081754085,
+                "raindrop": 0.012872865270949871,
+                "rainfall": 0.01019725950837651,
+                "rainless": 0.011973118313436396,
+                "rockfall": 0.008025652259789415,
+                "rockfish": 0.012167643696988997,
+                "rockwork": 0.013136814122534611,
+                "rosefish": 0.010910204435988785,
+                "rosewood": 0.017046023639655117,
+                "sailboat": 0.009590320747414532,
+                "sailfish": 0.013627653040456553,
+                "sandbank": 0.010894169357716348,
+                "sandfish": 0.017050017157990868,
+                "sandhill": 0.0074366257289797165,
+                "sandworm": 0.014219110890228094,
+                "showboat": 0.007570669859722311,
+                "showcase": 0.009912971827722217,
+                "snowball": 0.010405285428191748,
+                "snowbank": 0.00839385686195833,
+                "snowbird": 0.01279016579537128,
+                "snowdrop": 0.010562118989601901,
+                "snowfall": 0.009198219829007573,
+                "softball": 0.0136084161343344,
+                "softwood": 0.010820570994627153,
+                "starfish": 0.015306525888794801,
+                "starship": 0.010143929355324205,
+                "tilefish": 0.009803134150716814,
+                "tilework": 0.017419621749497606,
+                "woodland": 0.01244822043109817,
+                "woodwork": 0.017849080142940454
+              },
+              "confidence": 0.06287826586488837
+            }
+          ]
+        },
+        "whole": {
+          "C": [
+            {
+              "body": {
+                "model": "kev:0.8b-q8_0",
+                "state": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "baseline"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  }
+                },
+                "questions": {
+                  "decision": {
+                    "type": "choice",
+                    "instructions": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                    "criteria": {
+                      "baseball": null,
+                      "baseband": null,
+                      "baseline": null,
+                      "bluebird": null,
+                      "bluefish": null,
+                      "bookcase": null,
+                      "bookworm": null,
+                      "fireball": null,
+                      "firewood": null,
+                      "firework": null,
+                      "football": null,
+                      "foothill": null,
+                      "foothold": null,
+                      "footwork": null,
+                      "handball": null,
+                      "handhold": null,
+                      "handmaid": null,
+                      "handwork": null,
+                      "hardball": null,
+                      "hardline": null,
+                      "hardwood": null,
+                      "highball": null,
+                      "highland": null,
+                      "kingbird": null,
+                      "kingfish": null,
+                      "kingship": null,
+                      "milkfish": null,
+                      "milkmaid": null,
+                      "milkwood": null,
+                      "moonfish": null,
+                      "moonless": null,
+                      "pipefish": null,
+                      "pipeline": null,
+                      "pipework": null,
+                      "rainband": null,
+                      "raindrop": null,
+                      "rainfall": null,
+                      "rainless": null,
+                      "rockfall": null,
+                      "rockfish": null,
+                      "rockwork": null,
+                      "rosefish": null,
+                      "rosewood": null,
+                      "sailboat": null,
+                      "sailfish": null,
+                      "sandbank": null,
+                      "sandfish": null,
+                      "sandhill": null,
+                      "sandworm": null,
+                      "showboat": null,
+                      "showcase": null,
+                      "snowball": null,
+                      "snowbank": null,
+                      "snowbird": null,
+                      "snowdrop": null,
+                      "snowfall": null,
+                      "softball": null,
+                      "softwood": null,
+                      "starfish": null,
+                      "starship": null,
+                      "tilefish": null,
+                      "tilework": null,
+                      "woodland": null,
+                      "woodwork": null
+                    }
+                  }
+                }
+              },
+              "status": 200,
+              "response": "{\"model\":\"kev:0.8b-q8_0\",\"answers\":{\"decision\":{\"type\":\"choice\",\"choice\":\"baseline\",\"probabilities\":{\"baseball\":0.06519137612070837,\"baseband\":0.02991143369238199,\"baseline\":0.0975048435272604,\"bluebird\":0.05774558697553951,\"bluefish\":0.01732251467734614,\"bookcase\":0.018703106845579524,\"bookworm\":0.029231161477384863,\"fireball\":0.016046694653246447,\"firewood\":0.021070793599193016,\"firework\":0.012467867984674754,\"football\":0.021194049140713937,\"foothill\":0.016080032615707656,\"foothold\":0.01315333288520343,\"footwork\":0.02331010950032462,\"handball\":0.00809562698843336,\"handhold\":0.008177621181570262,\"handmaid\":0.010016185702717555,\"handwork\":0.015587756431548132,\"hardball\":0.011722285324528549,\"hardline\":0.01705410170884094,\"hardwood\":0.009328673536141958,\"highball\":0.006673884792928368,\"highland\":0.007265634129003018,\"kingbird\":0.011866381584018227,\"kingfish\":0.012373774006343288,\"kingship\":0.008618870761322894,\"milkfish\":0.011814314548220092,\"milkmaid\":0.008331942056170012,\"milkwood\":0.012249214527255574,\"moonfish\":0.01009375815912446,\"moonless\":0.008816333305285938,\"pipefish\":0.010715833987862536,\"pipeline\":0.008580329117428039,\"pipework\":0.009164569529394045,\"rainband\":0.009646293136323855,\"raindrop\":0.013021934885891148,\"rainfall\":0.010811099085285065,\"rainless\":0.011438931177447528,\"rockfall\":0.008326136094581141,\"rockfish\":0.012661913057282209,\"rockwork\":0.013347766064486484,\"rosefish\":0.011123807677789966,\"rosewood\":0.014378001073645948,\"sailboat\":0.009188988288559562,\"sailfish\":0.014489404483649911,\"sandbank\":0.012305269466492127,\"sandfish\":0.017836170430774154,\"sandhill\":0.007664394606076608,\"sandworm\":0.013418157608101293,\"showboat\":0.0073439748223661895,\"showcase\":0.010125613059232598,\"snowball\":0.01054427290251516,\"snowbank\":0.009632113715593187,\"snowbird\":0.013005383440918963,\"snowdrop\":0.01105648344802745,\"snowfall\":0.009429358111078775,\"softball\":0.013613407243033029,\"softwood\":0.009758119213853358,\"starfish\":0.01504484107061118,\"starship\":0.009640760035782044,\"tilefish\":0.010316037737217289,\"tilework\":0.017083689923921494,\"woodland\":0.011540690236120648,\"woodwork\":0.016726992829939717},\"confidence\":0.08317952358324866}},\"usage\":{\"input_tokens\":385,\"output_tokens\":0}}",
+              "resolved_model": "kev:0.8b-q8_0",
+              "reported_choice": "baseline",
+              "selected_option": "baseline",
+              "probabilities": {
+                "baseball": 0.06519137612070837,
+                "baseband": 0.02991143369238199,
+                "baseline": 0.0975048435272604,
+                "bluebird": 0.05774558697553951,
+                "bluefish": 0.01732251467734614,
+                "bookcase": 0.018703106845579524,
+                "bookworm": 0.029231161477384863,
+                "fireball": 0.016046694653246447,
+                "firewood": 0.021070793599193016,
+                "firework": 0.012467867984674754,
+                "football": 0.021194049140713937,
+                "foothill": 0.016080032615707656,
+                "foothold": 0.01315333288520343,
+                "footwork": 0.02331010950032462,
+                "handball": 0.00809562698843336,
+                "handhold": 0.008177621181570262,
+                "handmaid": 0.010016185702717555,
+                "handwork": 0.015587756431548132,
+                "hardball": 0.011722285324528549,
+                "hardline": 0.01705410170884094,
+                "hardwood": 0.009328673536141958,
+                "highball": 0.006673884792928368,
+                "highland": 0.007265634129003018,
+                "kingbird": 0.011866381584018227,
+                "kingfish": 0.012373774006343288,
+                "kingship": 0.008618870761322894,
+                "milkfish": 0.011814314548220092,
+                "milkmaid": 0.008331942056170012,
+                "milkwood": 0.012249214527255574,
+                "moonfish": 0.01009375815912446,
+                "moonless": 0.008816333305285938,
+                "pipefish": 0.010715833987862536,
+                "pipeline": 0.008580329117428039,
+                "pipework": 0.009164569529394045,
+                "rainband": 0.009646293136323855,
+                "raindrop": 0.013021934885891148,
+                "rainfall": 0.010811099085285065,
+                "rainless": 0.011438931177447528,
+                "rockfall": 0.008326136094581141,
+                "rockfish": 0.012661913057282209,
+                "rockwork": 0.013347766064486484,
+                "rosefish": 0.011123807677789966,
+                "rosewood": 0.014378001073645948,
+                "sailboat": 0.009188988288559562,
+                "sailfish": 0.014489404483649911,
+                "sandbank": 0.012305269466492127,
+                "sandfish": 0.017836170430774154,
+                "sandhill": 0.007664394606076608,
+                "sandworm": 0.013418157608101293,
+                "showboat": 0.0073439748223661895,
+                "showcase": 0.010125613059232598,
+                "snowball": 0.01054427290251516,
+                "snowbank": 0.009632113715593187,
+                "snowbird": 0.013005383440918963,
+                "snowdrop": 0.01105648344802745,
+                "snowfall": 0.009429358111078775,
+                "softball": 0.013613407243033029,
+                "softwood": 0.009758119213853358,
+                "starfish": 0.01504484107061118,
+                "starship": 0.009640760035782044,
+                "tilefish": 0.010316037737217289,
+                "tilework": 0.017083689923921494,
+                "woodland": 0.011540690236120648,
+                "woodwork": 0.016726992829939717
+              },
+              "confidence": 0.08317952358324866
+            }
+          ]
+        },
+        "elide_first": {
+          "C": [
+            {
+              "body": {
+                "model": "kev:0.8b-q8_0",
+                "state": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "line"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  }
+                },
+                "questions": {
+                  "decision": {
+                    "type": "choice",
+                    "instructions": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                    "criteria": {
+                      "baseball": null,
+                      "baseband": null,
+                      "baseline": null,
+                      "bluebird": null,
+                      "bluefish": null,
+                      "bookcase": null,
+                      "bookworm": null,
+                      "fireball": null,
+                      "firewood": null,
+                      "firework": null,
+                      "football": null,
+                      "foothill": null,
+                      "foothold": null,
+                      "footwork": null,
+                      "handball": null,
+                      "handhold": null,
+                      "handmaid": null,
+                      "handwork": null,
+                      "hardball": null,
+                      "hardline": null,
+                      "hardwood": null,
+                      "highball": null,
+                      "highland": null,
+                      "kingbird": null,
+                      "kingfish": null,
+                      "kingship": null,
+                      "milkfish": null,
+                      "milkmaid": null,
+                      "milkwood": null,
+                      "moonfish": null,
+                      "moonless": null,
+                      "pipefish": null,
+                      "pipeline": null,
+                      "pipework": null,
+                      "rainband": null,
+                      "raindrop": null,
+                      "rainfall": null,
+                      "rainless": null,
+                      "rockfall": null,
+                      "rockfish": null,
+                      "rockwork": null,
+                      "rosefish": null,
+                      "rosewood": null,
+                      "sailboat": null,
+                      "sailfish": null,
+                      "sandbank": null,
+                      "sandfish": null,
+                      "sandhill": null,
+                      "sandworm": null,
+                      "showboat": null,
+                      "showcase": null,
+                      "snowball": null,
+                      "snowbank": null,
+                      "snowbird": null,
+                      "snowdrop": null,
+                      "snowfall": null,
+                      "softball": null,
+                      "softwood": null,
+                      "starfish": null,
+                      "starship": null,
+                      "tilefish": null,
+                      "tilework": null,
+                      "woodland": null,
+                      "woodwork": null
+                    }
+                  }
+                }
+              },
+              "status": 200,
+              "response": "{\"model\":\"kev:0.8b-q8_0\",\"answers\":{\"decision\":{\"type\":\"choice\",\"choice\":\"baseline\",\"probabilities\":{\"baseball\":0.06646662166218543,\"baseband\":0.021499775508145833,\"baseline\":0.08308312316690084,\"bluebird\":0.05432627827132737,\"bluefish\":0.01678635402955186,\"bookcase\":0.016199500414478967,\"bookworm\":0.03276670975406841,\"fireball\":0.01563742204171813,\"firewood\":0.021561711326916512,\"firework\":0.012488356623612987,\"football\":0.021284267251601475,\"foothill\":0.01556512405520398,\"foothold\":0.0125594112210814,\"footwork\":0.02415774305984001,\"handball\":0.007264657049366526,\"handhold\":0.007715132659045129,\"handmaid\":0.010243610432413388,\"handwork\":0.0164141987448553,\"hardball\":0.010432263001250483,\"hardline\":0.026663047938019612,\"hardwood\":0.01048084067505275,\"highball\":0.007043912898040941,\"highland\":0.007837983052039532,\"kingbird\":0.012767930753486591,\"kingfish\":0.012875259442808514,\"kingship\":0.009740062658702682,\"milkfish\":0.011400918625804769,\"milkmaid\":0.008496717756158763,\"milkwood\":0.01272728564838809,\"moonfish\":0.010521284984912128,\"moonless\":0.00917301733820407,\"pipefish\":0.00986062834989114,\"pipeline\":0.008678651715737692,\"pipework\":0.009386367604406079,\"rainband\":0.00903597438967527,\"raindrop\":0.013305563571707564,\"rainfall\":0.011553821317147049,\"rainless\":0.01169079763950391,\"rockfall\":0.008282574655233094,\"rockfish\":0.012574675880680012,\"rockwork\":0.014407115091216376,\"rosefish\":0.010871402058975903,\"rosewood\":0.015933651961768307,\"sailboat\":0.009142534817908315,\"sailfish\":0.014535523363449848,\"sandbank\":0.011484066885979657,\"sandfish\":0.018403913157491437,\"sandhill\":0.0077203794623675855,\"sandworm\":0.01454275075655608,\"showboat\":0.0075091730056386615,\"showcase\":0.010127843314296536,\"snowball\":0.010452045588621447,\"snowbank\":0.009458536664629058,\"snowbird\":0.013855655838014657,\"snowdrop\":0.01207681218199148,\"snowfall\":0.011035608071927615,\"softball\":0.013233164442441865,\"softwood\":0.010366567235313484,\"starfish\":0.016463482501197668,\"starship\":0.00980906270665813,\"tilefish\":0.010099598133486416,\"tilework\":0.017299286128129206,\"woodland\":0.012346942772418101,\"woodwork\":0.01827530669035806},\"confidence\":0.06852888702669291}},\"usage\":{\"input_tokens\":385,\"output_tokens\":0}}",
+              "resolved_model": "kev:0.8b-q8_0",
+              "reported_choice": "baseline",
+              "selected_option": "baseline",
+              "probabilities": {
+                "baseball": 0.06646662166218543,
+                "baseband": 0.021499775508145833,
+                "baseline": 0.08308312316690084,
+                "bluebird": 0.05432627827132737,
+                "bluefish": 0.01678635402955186,
+                "bookcase": 0.016199500414478967,
+                "bookworm": 0.03276670975406841,
+                "fireball": 0.01563742204171813,
+                "firewood": 0.021561711326916512,
+                "firework": 0.012488356623612987,
+                "football": 0.021284267251601475,
+                "foothill": 0.01556512405520398,
+                "foothold": 0.0125594112210814,
+                "footwork": 0.02415774305984001,
+                "handball": 0.007264657049366526,
+                "handhold": 0.007715132659045129,
+                "handmaid": 0.010243610432413388,
+                "handwork": 0.0164141987448553,
+                "hardball": 0.010432263001250483,
+                "hardline": 0.026663047938019612,
+                "hardwood": 0.01048084067505275,
+                "highball": 0.007043912898040941,
+                "highland": 0.007837983052039532,
+                "kingbird": 0.012767930753486591,
+                "kingfish": 0.012875259442808514,
+                "kingship": 0.009740062658702682,
+                "milkfish": 0.011400918625804769,
+                "milkmaid": 0.008496717756158763,
+                "milkwood": 0.01272728564838809,
+                "moonfish": 0.010521284984912128,
+                "moonless": 0.00917301733820407,
+                "pipefish": 0.00986062834989114,
+                "pipeline": 0.008678651715737692,
+                "pipework": 0.009386367604406079,
+                "rainband": 0.00903597438967527,
+                "raindrop": 0.013305563571707564,
+                "rainfall": 0.011553821317147049,
+                "rainless": 0.01169079763950391,
+                "rockfall": 0.008282574655233094,
+                "rockfish": 0.012574675880680012,
+                "rockwork": 0.014407115091216376,
+                "rosefish": 0.010871402058975903,
+                "rosewood": 0.015933651961768307,
+                "sailboat": 0.009142534817908315,
+                "sailfish": 0.014535523363449848,
+                "sandbank": 0.011484066885979657,
+                "sandfish": 0.018403913157491437,
+                "sandhill": 0.0077203794623675855,
+                "sandworm": 0.01454275075655608,
+                "showboat": 0.0075091730056386615,
+                "showcase": 0.010127843314296536,
+                "snowball": 0.010452045588621447,
+                "snowbank": 0.009458536664629058,
+                "snowbird": 0.013855655838014657,
+                "snowdrop": 0.01207681218199148,
+                "snowfall": 0.011035608071927615,
+                "softball": 0.013233164442441865,
+                "softwood": 0.010366567235313484,
+                "starfish": 0.016463482501197668,
+                "starship": 0.00980906270665813,
+                "tilefish": 0.010099598133486416,
+                "tilework": 0.017299286128129206,
+                "woodland": 0.012346942772418101,
+                "woodwork": 0.01827530669035806
+              },
+              "confidence": 0.06852888702669291
+            }
+          ]
+        },
+        "elide_second": {
+          "C": [
+            {
+              "body": {
+                "model": "kev:0.8b-q8_0",
+                "state": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "base"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  }
+                },
+                "questions": {
+                  "decision": {
+                    "type": "choice",
+                    "instructions": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                    "criteria": {
+                      "baseball": null,
+                      "baseband": null,
+                      "baseline": null,
+                      "bluebird": null,
+                      "bluefish": null,
+                      "bookcase": null,
+                      "bookworm": null,
+                      "fireball": null,
+                      "firewood": null,
+                      "firework": null,
+                      "football": null,
+                      "foothill": null,
+                      "foothold": null,
+                      "footwork": null,
+                      "handball": null,
+                      "handhold": null,
+                      "handmaid": null,
+                      "handwork": null,
+                      "hardball": null,
+                      "hardline": null,
+                      "hardwood": null,
+                      "highball": null,
+                      "highland": null,
+                      "kingbird": null,
+                      "kingfish": null,
+                      "kingship": null,
+                      "milkfish": null,
+                      "milkmaid": null,
+                      "milkwood": null,
+                      "moonfish": null,
+                      "moonless": null,
+                      "pipefish": null,
+                      "pipeline": null,
+                      "pipework": null,
+                      "rainband": null,
+                      "raindrop": null,
+                      "rainfall": null,
+                      "rainless": null,
+                      "rockfall": null,
+                      "rockfish": null,
+                      "rockwork": null,
+                      "rosefish": null,
+                      "rosewood": null,
+                      "sailboat": null,
+                      "sailfish": null,
+                      "sandbank": null,
+                      "sandfish": null,
+                      "sandhill": null,
+                      "sandworm": null,
+                      "showboat": null,
+                      "showcase": null,
+                      "snowball": null,
+                      "snowbank": null,
+                      "snowbird": null,
+                      "snowdrop": null,
+                      "snowfall": null,
+                      "softball": null,
+                      "softwood": null,
+                      "starfish": null,
+                      "starship": null,
+                      "tilefish": null,
+                      "tilework": null,
+                      "woodland": null,
+                      "woodwork": null
+                    }
+                  }
+                }
+              },
+              "status": 200,
+              "response": "{\"model\":\"kev:0.8b-q8_0\",\"answers\":{\"decision\":{\"type\":\"choice\",\"choice\":\"baseline\",\"probabilities\":{\"baseball\":0.08117027152781062,\"baseband\":0.0333434302312443,\"baseline\":0.08589222393019365,\"bluebird\":0.05406542594064875,\"bluefish\":0.015522293497883475,\"bookcase\":0.018910340988119483,\"bookworm\":0.030433568097358046,\"fireball\":0.015136983944072474,\"firewood\":0.019980032381432283,\"firework\":0.011885329166009857,\"football\":0.02116471582101423,\"foothill\":0.01552005217579015,\"foothold\":0.01220434963142202,\"footwork\":0.022965662451096304,\"handball\":0.008202302043627291,\"handhold\":0.00791936840155988,\"handmaid\":0.009514873970321832,\"handwork\":0.016215313842634284,\"hardball\":0.011951444957858734,\"hardline\":0.014998719970121933,\"hardwood\":0.009919672442702256,\"highball\":0.006401149316512451,\"highland\":0.007623449149300281,\"kingbird\":0.011619049111452074,\"kingfish\":0.01229471632000157,\"kingship\":0.00933123307215769,\"milkfish\":0.011180358727631986,\"milkmaid\":0.007938419522477308,\"milkwood\":0.01212664830425501,\"moonfish\":0.009570064318450882,\"moonless\":0.008316787228196208,\"pipefish\":0.00946133160693152,\"pipeline\":0.00782091401919603,\"pipework\":0.009008290570367472,\"rainband\":0.009315430739951988,\"raindrop\":0.012872760024182183,\"rainfall\":0.010981028254529566,\"rainless\":0.011014155242512706,\"rockfall\":0.008268759096863382,\"rockfish\":0.012099430489523335,\"rockwork\":0.01389880432598835,\"rosefish\":0.010283737354463689,\"rosewood\":0.014678337800057537,\"sailboat\":0.00976951482027917,\"sailfish\":0.01408732707457288,\"sandbank\":0.012630664518301684,\"sandfish\":0.017331333945281295,\"sandhill\":0.008009728920782099,\"sandworm\":0.014148630996821973,\"showboat\":0.007830484641116457,\"showcase\":0.010945891708654494,\"snowball\":0.010659501288456844,\"snowbank\":0.009601125191886778,\"snowbird\":0.013365215784595392,\"snowdrop\":0.011140647649274839,\"snowfall\":0.0100165465714317,\"softball\":0.013795645815559256,\"softwood\":0.010955366281377566,\"starfish\":0.015429593898496586,\"starship\":0.010249127309793188,\"tilefish\":0.009352345187488852,\"tilework\":0.016878017353891637,\"woodland\":0.012547289051683869,\"woodwork\":0.018234771982329052},\"confidence\":0.07138257669099038}},\"usage\":{\"input_tokens\":385,\"output_tokens\":0}}",
+              "resolved_model": "kev:0.8b-q8_0",
+              "reported_choice": "baseline",
+              "selected_option": "baseline",
+              "probabilities": {
+                "baseball": 0.08117027152781062,
+                "baseband": 0.0333434302312443,
+                "baseline": 0.08589222393019365,
+                "bluebird": 0.05406542594064875,
+                "bluefish": 0.015522293497883475,
+                "bookcase": 0.018910340988119483,
+                "bookworm": 0.030433568097358046,
+                "fireball": 0.015136983944072474,
+                "firewood": 0.019980032381432283,
+                "firework": 0.011885329166009857,
+                "football": 0.02116471582101423,
+                "foothill": 0.01552005217579015,
+                "foothold": 0.01220434963142202,
+                "footwork": 0.022965662451096304,
+                "handball": 0.008202302043627291,
+                "handhold": 0.00791936840155988,
+                "handmaid": 0.009514873970321832,
+                "handwork": 0.016215313842634284,
+                "hardball": 0.011951444957858734,
+                "hardline": 0.014998719970121933,
+                "hardwood": 0.009919672442702256,
+                "highball": 0.006401149316512451,
+                "highland": 0.007623449149300281,
+                "kingbird": 0.011619049111452074,
+                "kingfish": 0.01229471632000157,
+                "kingship": 0.00933123307215769,
+                "milkfish": 0.011180358727631986,
+                "milkmaid": 0.007938419522477308,
+                "milkwood": 0.01212664830425501,
+                "moonfish": 0.009570064318450882,
+                "moonless": 0.008316787228196208,
+                "pipefish": 0.00946133160693152,
+                "pipeline": 0.00782091401919603,
+                "pipework": 0.009008290570367472,
+                "rainband": 0.009315430739951988,
+                "raindrop": 0.012872760024182183,
+                "rainfall": 0.010981028254529566,
+                "rainless": 0.011014155242512706,
+                "rockfall": 0.008268759096863382,
+                "rockfish": 0.012099430489523335,
+                "rockwork": 0.01389880432598835,
+                "rosefish": 0.010283737354463689,
+                "rosewood": 0.014678337800057537,
+                "sailboat": 0.00976951482027917,
+                "sailfish": 0.01408732707457288,
+                "sandbank": 0.012630664518301684,
+                "sandfish": 0.017331333945281295,
+                "sandhill": 0.008009728920782099,
+                "sandworm": 0.014148630996821973,
+                "showboat": 0.007830484641116457,
+                "showcase": 0.010945891708654494,
+                "snowball": 0.010659501288456844,
+                "snowbank": 0.009601125191886778,
+                "snowbird": 0.013365215784595392,
+                "snowdrop": 0.011140647649274839,
+                "snowfall": 0.0100165465714317,
+                "softball": 0.013795645815559256,
+                "softwood": 0.010955366281377566,
+                "starfish": 0.015429593898496586,
+                "starship": 0.010249127309793188,
+                "tilefish": 0.009352345187488852,
+                "tilework": 0.016878017353891637,
+                "woodland": 0.012547289051683869,
+                "woodwork": 0.018234771982329052
+              },
+              "confidence": 0.07138257669099038
+            }
+          ]
+        },
+        "alternating": {
+          "C": [
+            {
+              "body": {
+                "model": "kev:0.8b-q8_0",
+                "state": {
+                  "role": "C",
+                  "observation": {
+                    "role": "C",
+                    "possible_deliveries": [
+                      "whole",
+                      "elide_first",
+                      "elide_second",
+                      "alternating"
+                    ],
+                    "fragment": "bsln"
+                  },
+                  "objective": {
+                    "metric": "exact_recovery",
+                    "direction": "maximize",
+                    "horizon": 1
+                  }
+                },
+                "questions": {
+                  "decision": {
+                    "type": "choice",
+                    "instructions": "A chooses a word. C receives one of these clues: all eight letters; the last four letters; the first four letters; letters at positions 1, 3, 5 and 7. C chooses a word from the same bank. Recovery succeeds when both choices match exactly.",
+                    "criteria": {
+                      "baseball": null,
+                      "baseband": null,
+                      "baseline": null,
+                      "bluebird": null,
+                      "bluefish": null,
+                      "bookcase": null,
+                      "bookworm": null,
+                      "fireball": null,
+                      "firewood": null,
+                      "firework": null,
+                      "football": null,
+                      "foothill": null,
+                      "foothold": null,
+                      "footwork": null,
+                      "handball": null,
+                      "handhold": null,
+                      "handmaid": null,
+                      "handwork": null,
+                      "hardball": null,
+                      "hardline": null,
+                      "hardwood": null,
+                      "highball": null,
+                      "highland": null,
+                      "kingbird": null,
+                      "kingfish": null,
+                      "kingship": null,
+                      "milkfish": null,
+                      "milkmaid": null,
+                      "milkwood": null,
+                      "moonfish": null,
+                      "moonless": null,
+                      "pipefish": null,
+                      "pipeline": null,
+                      "pipework": null,
+                      "rainband": null,
+                      "raindrop": null,
+                      "rainfall": null,
+                      "rainless": null,
+                      "rockfall": null,
+                      "rockfish": null,
+                      "rockwork": null,
+                      "rosefish": null,
+                      "rosewood": null,
+                      "sailboat": null,
+                      "sailfish": null,
+                      "sandbank": null,
+                      "sandfish": null,
+                      "sandhill": null,
+                      "sandworm": null,
+                      "showboat": null,
+                      "showcase": null,
+                      "snowball": null,
+                      "snowbank": null,
+                      "snowbird": null,
+                      "snowdrop": null,
+                      "snowfall": null,
+                      "softball": null,
+                      "softwood": null,
+                      "starfish": null,
+                      "starship": null,
+                      "tilefish": null,
+                      "tilework": null,
+                      "woodland": null,
+                      "woodwork": null
+                    }
+                  }
+                }
+              },
+              "status": 200,
+              "response": "{\"model\":\"kev:0.8b-q8_0\",\"answers\":{\"decision\":{\"type\":\"choice\",\"choice\":\"baseball\",\"probabilities\":{\"baseball\":0.08314740705041852,\"baseband\":0.031787776458838304,\"baseline\":0.0715827181445572,\"bluebird\":0.058662762365607676,\"bluefish\":0.018030316908660075,\"bookcase\":0.021744003126777236,\"bookworm\":0.03813075389584382,\"fireball\":0.016111601935597762,\"firewood\":0.0200906067462515,\"firework\":0.011591449304402123,\"football\":0.016119102988608955,\"foothill\":0.015171788455588205,\"foothold\":0.012070253831331501,\"footwork\":0.02325724167682959,\"handball\":0.007356192022379412,\"handhold\":0.007410785443485613,\"handmaid\":0.009363352958482516,\"handwork\":0.015901669448435813,\"hardball\":0.01458218474994231,\"hardline\":0.015966665020903832,\"hardwood\":0.010440798933010307,\"highball\":0.006505482834564324,\"highland\":0.0069962658996359775,\"kingbird\":0.010648137765492931,\"kingfish\":0.012088733428346389,\"kingship\":0.007921622079300231,\"milkfish\":0.012731712522410673,\"milkmaid\":0.008069985826926947,\"milkwood\":0.013932248108925054,\"moonfish\":0.010519528296926275,\"moonless\":0.007871880421930206,\"pipefish\":0.011145330162829835,\"pipeline\":0.00877224709793846,\"pipework\":0.00908627790264365,\"rainband\":0.007961004787590816,\"raindrop\":0.011956293661679537,\"rainfall\":0.009235603747764361,\"rainless\":0.012277941044902518,\"rockfall\":0.008998647163250587,\"rockfish\":0.012682128178799469,\"rockwork\":0.013776557186661808,\"rosefish\":0.012149020384939938,\"rosewood\":0.015179957181617515,\"sailboat\":0.009295201139066562,\"sailfish\":0.013555375165158404,\"sandbank\":0.014434235175925942,\"sandfish\":0.019576433228326074,\"sandhill\":0.007828539321065645,\"sandworm\":0.015584955915096583,\"showboat\":0.0071199231169618744,\"showcase\":0.009689439357881748,\"snowball\":0.009862381786075854,\"snowbank\":0.010887420610983968,\"snowbird\":0.012649422143051448,\"snowdrop\":0.010424193626923737,\"snowfall\":0.009209990730979244,\"softball\":0.014468638838412347,\"softwood\":0.010664866199436091,\"starfish\":0.014896811984759329,\"starship\":0.00862915985595331,\"tilefish\":0.009313917417991795,\"tilework\":0.014935168274801541,\"woodland\":0.011028418436551087,\"woodwork\":0.0169194705235672},\"confidence\":0.06859419128931406}},\"usage\":{\"input_tokens\":386,\"output_tokens\":0}}",
+              "resolved_model": "kev:0.8b-q8_0",
+              "reported_choice": "baseball",
+              "selected_option": "baseball",
+              "probabilities": {
+                "baseball": 0.08314740705041852,
+                "baseband": 0.031787776458838304,
+                "baseline": 0.0715827181445572,
+                "bluebird": 0.058662762365607676,
+                "bluefish": 0.018030316908660075,
+                "bookcase": 0.021744003126777236,
+                "bookworm": 0.03813075389584382,
+                "fireball": 0.016111601935597762,
+                "firewood": 0.0200906067462515,
+                "firework": 0.011591449304402123,
+                "football": 0.016119102988608955,
+                "foothill": 0.015171788455588205,
+                "foothold": 0.012070253831331501,
+                "footwork": 0.02325724167682959,
+                "handball": 0.007356192022379412,
+                "handhold": 0.007410785443485613,
+                "handmaid": 0.009363352958482516,
+                "handwork": 0.015901669448435813,
+                "hardball": 0.01458218474994231,
+                "hardline": 0.015966665020903832,
+                "hardwood": 0.010440798933010307,
+                "highball": 0.006505482834564324,
+                "highland": 0.0069962658996359775,
+                "kingbird": 0.010648137765492931,
+                "kingfish": 0.012088733428346389,
+                "kingship": 0.007921622079300231,
+                "milkfish": 0.012731712522410673,
+                "milkmaid": 0.008069985826926947,
+                "milkwood": 0.013932248108925054,
+                "moonfish": 0.010519528296926275,
+                "moonless": 0.007871880421930206,
+                "pipefish": 0.011145330162829835,
+                "pipeline": 0.00877224709793846,
+                "pipework": 0.00908627790264365,
+                "rainband": 0.007961004787590816,
+                "raindrop": 0.011956293661679537,
+                "rainfall": 0.009235603747764361,
+                "rainless": 0.012277941044902518,
+                "rockfall": 0.008998647163250587,
+                "rockfish": 0.012682128178799469,
+                "rockwork": 0.013776557186661808,
+                "rosefish": 0.012149020384939938,
+                "rosewood": 0.015179957181617515,
+                "sailboat": 0.009295201139066562,
+                "sailfish": 0.013555375165158404,
+                "sandbank": 0.014434235175925942,
+                "sandfish": 0.019576433228326074,
+                "sandhill": 0.007828539321065645,
+                "sandworm": 0.015584955915096583,
+                "showboat": 0.0071199231169618744,
+                "showcase": 0.009689439357881748,
+                "snowball": 0.009862381786075854,
+                "snowbank": 0.010887420610983968,
+                "snowbird": 0.012649422143051448,
+                "snowdrop": 0.010424193626923737,
+                "snowfall": 0.009209990730979244,
+                "softball": 0.014468638838412347,
+                "softwood": 0.010664866199436091,
+                "starfish": 0.014896811984759329,
+                "starship": 0.00862915985595331,
+                "tilefish": 0.009313917417991795,
+                "tilework": 0.014935168274801541,
+                "woodland": 0.011028418436551087,
+                "woodwork": 0.0169194705235672
+              },
+              "confidence": 0.06859419128931406
+            }
+          ]
+        }
+      },
+      "metrics": {
+        "whole": {
+          "numerator": 1,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 1.0
+        },
+        "elide_first": {
+          "numerator": 1,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 1.0
+        },
+        "elide_first_minus_whole": {
+          "numerator": 0,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 0.0
+        },
+        "elide_second": {
+          "numerator": 1,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 1.0
+        },
+        "elide_second_minus_whole": {
+          "numerator": 0,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 0.0
+        },
+        "alternating": {
+          "numerator": 0,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": 0.0
+        },
+        "alternating_minus_whole": {
+          "numerator": -1,
+          "observed": 1,
+          "planned": 1,
+          "missing": 0,
+          "value": -1.0
+        }
+      }
+    }
+  ],
+  "summary": {
+    "whole": {
+      "numerator": 1.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 1.0
+    },
+    "elide_first": {
+      "numerator": 1.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 1.0
+    },
+    "elide_first_minus_whole": {
+      "numerator": 0.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 0.0
+    },
+    "elide_second": {
+      "numerator": 1.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 1.0
+    },
+    "elide_second_minus_whole": {
+      "numerator": 0.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 0.0
+    },
+    "alternating": {
+      "numerator": 0.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": 0.0
+    },
+    "alternating_minus_whole": {
+      "numerator": -1.0,
+      "observed": 1,
+      "planned": 1,
+      "missing": 0,
+      "value": -1.0
+    }
+  }
+}
