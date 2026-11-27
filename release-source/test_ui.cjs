@@ -35,6 +35,8 @@ assert.equal(el('host-view').hidden, true);
 assert.equal(el('host-view').textContent, '');
 assert.equal(el('probability-table').children.length, 64);
 assert.equal(el('bank').children.length, 64);
+assert.equal(window.CINCOG_DATA.c2, undefined);
+assert.doesNotMatch(html, /\bC2\b/i);
 const comparisonBefore = el('bars').textContent;
 el('view-a').click();
 assert.match(el('agent-view').textContent, /preceding recorded turn/);
@@ -56,13 +58,6 @@ assert.equal(el('probability-table').children.length, 3);
 assert.match(el('filter-status').textContent, /still uses all 64/);
 el('filter').handlers.input({target:{value:'<script>'}});
 assert.equal(el('probability-table').children.length, 0);
-const cells = el('board').children;
-assert.equal(cells.filter(x => !x.disabled).length, 3);
-cells[8].click();
-assert.equal(el('board').children[8], cells[8], 'selection replaced the active keyboard control');
-assert.equal(cells[8].attrs['aria-pressed'], 'true');
-assert.equal(cells[0].attrs['aria-pressed'], 'false');
-assert.match(el('destinations').textContent, /From cell 8: destinations 0, 1, 2, 3, 4, 5, 6, 7/);
 for (const row of el('bars').children) {
   for (const track of row.children[1].children) {
     const percentage = Number.parseFloat(track.children[0].style.width);
@@ -111,4 +106,4 @@ assert.equal(theme.value, 'system');
 theme.value = 'dark';
 theme.handlers.change();
 assert.equal(palette.media, 'screen');
-console.log('PASS: agent views, reveal, evidence, filtering, legal sources, chart scale, local links and theme preferences.');
+console.log('PASS: agent views, reveal, evidence, filtering, chart scale, local links and theme preferences.');

@@ -4,7 +4,7 @@
   const data = window.CINCOG_DATA;
   if (!data || !data.c4) throw new Error('Verified presentation data is missing.');
   const c4 = data.c4;
-  const state = { agent: 'C', revealed: false, filter: '', source: 0 };
+  const state = { agent: 'C', revealed: false, filter: '' };
   const byId = id => document.getElementById(id);
   const pct = value => (100 * value).toFixed(4) + '%';
   const signed = value => (value > 0 ? '+' : '') + value.toFixed(4);
@@ -96,27 +96,6 @@
     }
     byId('filter-status').textContent = rows.length + ' of 64 words displayed. Divergence still uses all 64.';
   }
-  function selectSource(source) {
-    state.source = source;
-    const board = data.c2.example.board;
-    Array.from(byId('board').children).forEach((button, cell) => {
-      button.setAttribute('aria-pressed', String(source === cell));
-    });
-    const destinations = board.map((_, i) => i).filter(i => i !== source);
-    byId('destinations').textContent = 'From cell ' + source + ': destinations ' + destinations.join(', ') + '.';
-  }
-  function renderBoard() {
-    const board = data.c2.example.board;
-    const grid = byId('board'); grid.replaceChildren();
-    board.forEach((count, cell) => {
-      const button = element('button'); button.type = 'button'; button.disabled = count === 0;
-      button.setAttribute('aria-label', 'Cell ' + cell + ', ' + count + ' people' + (count ? ', inspect destinations' : ', no transfer source'));
-      appendText(button, 'span', 'Cell ' + cell); appendText(button, 'strong', String(count));
-      button.addEventListener('click', () => selectSource(cell));
-      grid.append(button);
-    });
-    selectSource(state.source);
-  }
   byId('view-c').addEventListener('click', () => { state.agent = 'C'; renderAgent(); });
   byId('view-a').addEventListener('click', () => { state.agent = 'A'; renderAgent(); });
   byId('reveal').addEventListener('click', () => { state.revealed = !state.revealed; renderReveal(); });
@@ -128,7 +107,5 @@
   byId('kl-note').textContent = 'For reference, directed KL(P‖Q) = ' + c4.comparison.kl_pq_bits.toFixed(9)
     + ' bits. Positive P against a zero Q would make this directed divergence infinite; that does not occur in this pair.';
   for (const word of Object.keys(c4.receiver.alternating.answer.probabilities)) appendText(byId('bank'), 'span', word);
-  byId('c2-example-label').textContent = data.c2.example.model + ' · ' + data.c2.example.id + ' · earlier run';
-  byId('c2-example').textContent = pretty(JSON.parse(data.c2.example.raw));
-  renderAgent(); renderReveal(); renderBars(); renderTable(); renderBoard();
+  renderAgent(); renderReveal(); renderBars(); renderTable();
 })();

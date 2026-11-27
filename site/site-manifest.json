@@ -8,33 +8,33 @@
     },
     {
       "path": "app.js",
-      "sha256": "209549112b09da45fca49fb537e1f257fc5124600aef443bd75d8972ae2d4b16",
-      "bytes": 8489
+      "sha256": "1c9fab8d460eab2e6bf4c4314a9d38919bd472a4aaadd9fc2a4e513f2d9fd5b9",
+      "bytes": 7201
     },
     {
       "path": "dark.css",
-      "sha256": "2b418647787fdf48f1ba3e9b4e21f31ee659be620b209c8264bf6ebd2551dbde",
-      "bytes": 616
+      "sha256": "450760aa7b8983948c302f7c3683662b698643878937dbf81b600dd83f9671f5",
+      "bytes": 513
     },
     {
       "path": "data.js",
-      "sha256": "0d47a5cef6fa592e7ae50f21e25a15bf658b48ff475a03b9d27cc2ebdfd47772",
-      "bytes": 41456
+      "sha256": "93131abe20bab02b6651d98b32640f85b694e47f1723da023c0500cb117b3e2a",
+      "bytes": 36123
     },
     {
       "path": "data.json",
-      "sha256": "bdad1ea0871539b1fc6a45411625b899cc1afc45972f7da3c5c37e263543d77b",
-      "bytes": 64318
+      "sha256": "11eadc3f89b044a8e5343577c5589b545fa6c11eb378c28d86311952573234a9",
+      "bytes": 56695
     },
     {
-      "path": "downloads/cincog-v0.1.1-reproduce.zip",
-      "sha256": "858e23d63a678f3b6e3bc991dc47fb23fccf92a1d69141e127733a8dd46d0b98",
-      "bytes": 777332
+      "path": "downloads/cincog-c4-reproduce.zip",
+      "sha256": "1204d2a21825ad7122a3db5678829fbaaf01e9c73ec0e1c851fe0168682f7357",
+      "bytes": 80336
     },
     {
       "path": "downloads/SHA256SUMS.txt",
-      "sha256": "34259f2126da01c9d3f7074620ed6ba92455aa55739077cd2cccaa865ebbb183",
-      "bytes": 95
+      "sha256": "529482bfbed44bab98c235b11064d9bbc651811655cab19c75fab44b36635119",
+      "bytes": 91
     },
     {
       "path": "evidence/c4-kev.json",
@@ -43,23 +43,23 @@
     },
     {
       "path": "evidence/manifest.json",
-      "sha256": "dcb3cf561bb32558309edc4d4f978904f87b6fad53ab6550beeef2a52bd516da",
-      "bytes": 20920
+      "sha256": "ba4aba95bb38ccccda6f4996a677d571e78511a2583c4b55a1a2ec25314b3835",
+      "bytes": 1025
     },
     {
       "path": "evidence/provenance.json",
-      "sha256": "9ba934160d9b13a690ba552bf9c0c802770b6cabf0a64f34f67df1c84a6a1dfc",
-      "bytes": 5480
+      "sha256": "c54db24b998e348011c921e12f6b06a4195f35dcd7a37b54548ab1112fc3b6e9",
+      "bytes": 730
     },
     {
       "path": "index.html",
-      "sha256": "304773e5fd890d7673ed42afb7b739b73082a3963f47608696bdaf0ee07932de",
-      "bytes": 13559
+      "sha256": "ba0c393259f94a29ceef0ea43cd1ce4c6ca85ff49761254127c4f9c563443e11",
+      "bytes": 11081
     },
     {
       "path": "styles.css",
-      "sha256": "ebd821a4609134a847a025fb98d87f5a0b7fb6d253ed6481fb522e9e99fe3307",
-      "bytes": 12924
+      "sha256": "cac68be73bbf7050d64fb998e8e542307030b7b1555f6dc4364e5dd1aa1751fd",
+      "bytes": 11778
     },
     {
       "path": "theme.js",

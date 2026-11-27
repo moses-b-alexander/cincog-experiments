@@ -16,7 +16,7 @@
   <header class="masthead">
     <a class="brand" href="#top" aria-label="Cincog, Communication IN Coordinated Games">Cincog<span><b>C</b>ommunication <b>IN</b> <b>Co</b>ordinated <b>G</b>ames</span></a>
     <div class="masthead-tools">
-      <nav aria-label="Page sections"><a href="#decision">C4 decision</a><a href="#c2">C2 refinement</a><a href="#reproduce">Reproduce</a></nav>
+      <nav aria-label="Page sections"><a href="#decision">C4 decision</a><a href="#comparison">Clue comparison</a><a href="#reproduce">Reproduce</a></nav>
       <label class="theme-control" id="theme-control" hidden>Theme
         <select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
       </label>
@@ -77,7 +77,7 @@
         <p class="formula">TV(P,Q) = ½ Σ |P(w) − Q(w)|</p>
         <p>Zero-weight terms contribute zero. No smoothing is used. Vectors are divided by their totals only to remove floating-point sum error. All calculations use unrounded values, including words omitted from the small chart.</p>
         <p id="kl-note"></p>
-        <p><a href="downloads/cincog-v0.1.1-reproduce.zip" download>Download the original record and verifier</a></p>
+        <p><a href="downloads/cincog-c4-reproduce.zip" download>Download the original record and verifier</a></p>
       </details>
       <details class="method"><summary>Inspect all 64 values and per-word contributions</summary>
         <label class="search-label" for="filter">Filter word <input id="filter" type="search" placeholder="e.g. base" autocomplete="off"></label>
@@ -87,26 +87,18 @@
       <div class="interpretation"><h3>A vector is not a frequency estimate.</h3><p>These are native System One action probabilities from two saved requests. The host took the highest-weight action once in each condition. The two recorded responses do not estimate frequencies across repeated runs.</p><p>The native reply also reports a separate <code>confidence</code> field. It is not the chosen word’s probability. Conventional next-token scores conditioned on offered codes measure something different and are not combined with this comparison.</p></div>
     </section>
 
-    <section id="c2" class="companion" aria-labelledby="c2-title">
-      <p class="eyebrow">Companion case · C2</p><h2 id="c2-title">A valid coordinate is not yet a legal move.</h2>
-      <p class="section-copy">The quarterback could return a cell number from 0 to 8, even when that source cell was empty. Reviewed wording alone left this ambiguity in the generated action. Task 029 changed the menu to match the current board.</p>
-      <div class="c2-grid"><div><h3>Inspect the revised menu</h3><p>Choose an occupied source cell. Each has eight other destinations. This is a view of the recorded contract, not a new model turn.</p><div id="board" class="board" role="group" aria-label="Offensive personnel by cell"></div><p id="destinations" aria-live="polite"></p><p><code>do_nothing()</code> is also explicitly offered. A missing or malformed response is not a hold.</p></div>
-        <div><div class="completion"><article><p>Earlier run</p><strong>8<span>/25</span></strong><p>four-play episodes completed</p></article><article><p>Revised menu</p><strong>25<span>/25</span></strong><p>four-play episodes completed</p></article></div><p>The earlier run logged <b>41 empty-source rejections</b>, including retries. The revised menu exposed <b>24 transfers plus one hold</b> on this board, and the host rechecked every returned command before applying it.</p><p class="callout">This supports improved command reliability. Strategic improvement remains untested.</p><p class="small">These were successive local runs across the same five models, with five repetitions each. Early failures prevented later decisions from being issued. All completed final episodes scored 1.0, so this fixture does not rank strategies.</p></div></div>
-      <details><summary>One rejected command and the revised contract</summary><p id="c2-example-label"></p><pre id="c2-example"></pre><p>The source is empty in the recorded board. The earlier schema allowed the coordinate, but the host rejected the move. The revised schema fixes each source to an occupied cell and enumerates its other destinations.</p><p>Evidence: Task 029 revisions <code>f57e50e</code> and <code>14f3f1d</code>. The reproduction kit includes all 25 original records from each run and a verifier that joins admitted commands to saved play effects.</p></details>
-    </section>
-
     <section id="reproduce" aria-labelledby="reproduce-title">
       <p class="eyebrow">From claims back to records</p><h2 id="reproduce-title">Take the evidence with you.</h2>
       <p class="section-copy">A static page, original records and a small offline verifier. The v0.1.1 presentation uses the pinned 0.1.0 runtime that produced the selected trace. No model account or GPU is needed for replay.</p>
-      <div class="downloads"><a class="primary-link" href="downloads/cincog-v0.1.1-reproduce.zip" download>Download C2 + C4 reproduction kit</a><a href="evidence/c4-kev.json" download>Original C4 trace</a><a href="downloads/SHA256SUMS.txt">Download checksums</a></div>
-      <div class="reproduce-grid"><div><h3>Recompute the displayed numbers</h3><pre>python verify.py</pre><p>Checks file hashes, both C4 vectors, divergence, C2 completion counts, original replies and revised legal menus. Uses only the Python standard library.</p></div><div><h3>Replay the installed studies</h3><pre>python -m venv env
+      <div class="downloads"><a class="primary-link" href="downloads/cincog-c4-reproduce.zip" download>Download the C4 reproduction kit</a><a href="evidence/c4-kev.json" download>Original C4 trace</a><a href="downloads/SHA256SUMS.txt">Download checksums</a></div>
+      <div class="reproduce-grid"><div><h3>Recompute the displayed numbers</h3><pre>python verify.py</pre><p>Checks the original trace and recomputes the probability changes and divergence across all 64 words. Uses only the Python standard library.</p></div><div><h3>Replay the C4 study</h3><pre>python -m venv env
 # Windows:
 env\Scripts\python -m pip install --no-index --no-deps wheel/cincog_framework_lab-0.1.0-py3-none-any.whl
-env\Scripts\python -I -B replay_offline.py</pre><p>Runs both offline fixtures and replays the real Kev trace with socket connections blocked. On macOS/Linux use <code>env/bin/python</code>; those platforms have not been qualified here.</p></div></div>
-      <details><summary>Provenance and what remains unresolved</summary><ul><li>C4 is one fixed sender choice with two fresh receiver conditions. It is not a population estimate or a test of multi-turn learning.</li><li>A strategic B, new prompts, menu order, bank membership and new downstream histories require new model requests.</li><li>The registered trace records the Kev model tag and workflow digest, but no exact weight digest or server identity. Saved-record replay is exact; fresh inference equivalence is unqualified.</li><li>The C2 runs support command reliability. They do not isolate a causal treatment effect or establish strategic improvement.</li><li>Large menus, different hardware and Linux parity remain unqualified.</li><li>The release provides source for inspection and reproduction. It does not add a new software license grant.</li></ul><p><a href="evidence/provenance.json">Source revisions and evidence hashes</a> · <a href="evidence/manifest.json">Reproduction kit file manifest</a></p></details>
+env\Scripts\python -I -B replay_offline.py</pre><p>Runs the scripted C4 fixture and replays the recorded Kev decisions with socket connections blocked. On macOS/Linux use <code>env/bin/python</code>; those platforms have not been qualified here.</p></div></div>
+      <details><summary>Provenance and what remains unresolved</summary><ul><li>C4 is one fixed sender choice with two fresh receiver conditions. It is not a population estimate or a test of multi-turn learning.</li><li>A strategic B, new prompts, menu order, bank membership and new downstream histories require new model requests.</li><li>The registered trace records the Kev model tag and workflow digest, but no exact weight digest or server identity. Saved-record replay is exact; fresh inference equivalence is unqualified.</li><li>Large menus, different hardware and Linux parity remain unqualified.</li><li>The release provides source for inspection and reproduction. It does not add a new software license grant.</li></ul><p><a href="evidence/provenance.json">Source revisions and evidence hashes</a> · <a href="evidence/manifest.json">Reproduction kit file manifest</a></p></details>
     </section>
   </main>
   <footer><span>Cincog · v0.1.1 presentation and evidence release</span><span>Prepared from the verified 26 November 2026 handoff</span></footer>
-  <noscript><p class="noscript">Enable JavaScript to inspect agent views and probabilities. The <a href="evidence/c4-kev.json">original trace</a> and <a href="downloads/cincog-v0.1.1-reproduce.zip">reproduction kit</a> remain available without it.</p></noscript>
+  <noscript><p class="noscript">Enable JavaScript to inspect agent views and probabilities. The <a href="evidence/c4-kev.json">original trace</a> and <a href="downloads/cincog-c4-reproduce.zip">reproduction kit</a> remain available without it.</p></noscript>
 </body>
 </html>

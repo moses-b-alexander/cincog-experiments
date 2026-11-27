@@ -102,13 +102,9 @@ def main():
     args = parser.parse_args()
     count = verify_hashes(args.root)
     c4 = c4_data(args.root / 'evidence/c4-kev.json')
-    # Completion and request legality are checked by the C2 audit module.
-    from audit_c2 import audit
-    c2 = audit(args.root / 'evidence/c2')
     print(json.dumps({'verified_files': count, 'c4': {'trial': c4['trial'],
         'decisions': 5, 'JS_bits': c4['comparison']['js_bits'], 'TV': c4['comparison']['tv'],
-        'delta_target_pp': next(r['delta_pp'] for r in c4['comparison']['rows'] if r['word'] == 'baseline')},
-        'c2': c2}, indent=2))
+        'delta_target_pp': next(r['delta_pp'] for r in c4['comparison']['rows'] if r['word'] == 'baseline')}}, indent=2))
 
 
 if __name__ == '__main__':
