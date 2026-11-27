@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import zipfile
 
-from verify import c4_data, require
+from verify import ARMS, c4_data, require
 
 HERE = Path(__file__).resolve().parent
 BASE = '8b677f65b10e8248bcd57c075354a0bd03f5cb46'
@@ -65,6 +65,11 @@ def main():
              for p in sorted(kit.rglob('*')) if p.is_file()]
     write(kit / 'manifest.json', {'version': 1, 'release': '0.1.1', 'files': files})
     # The browser uses derived data, while the original records stay available.
+    c4['comparison']['conditions'] = {
+        label: {'receiver_arm': arm, 'fragment': c4['receiver'][arm]['body']['state']['observation']['fragment'],
+                'active_rule_disclosed': False}
+        for label, arm in zip(('p', 'q'), ARMS)
+    }
     data = {'c4': c4, 'release': '0.1.1', 'runtime_version': '0.1.0'}
     for p in (HERE / 'web').iterdir():
         if p.is_file(): copy(p, site / p.name)

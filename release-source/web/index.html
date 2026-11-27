@@ -28,7 +28,7 @@
       <h1>One decision.<br>Different information.</h1>
       <p class="lede">A sender chooses a word. A receiver sees part of it. Explore the information behind a recorded choice, then compare what changed when the clue changed.</p>
       <div class="intro-meta"><span>C4 · Word channel</span><span>Kev 0.8B · Native System One</span><span>Saved evidence · No live inference</span></div>
-      <p class="small muted">The native C4 runs used Ollama on a Windows machine with an NVIDIA GeForce RTX 4060 (8 GiB VRAM). The saved Kev trace records the model tag and decisions.</p>
+      <p class="small muted">The native C4 runs used Ollama on a Windows machine with an NVIDIA GeForce RTX 4060 (8 GiB VRAM). <a href="methods.html">Hardware, menu limits and scoring methods</a></p>
     </section>
 
     <section id="decision" class="experiment" aria-labelledby="decision-title">
@@ -73,7 +73,7 @@
       </div>
       <div class="metrics"><article><p>Jensen–Shannon divergence</p><strong id="js-value"></strong><span>bits · all 64 words</span></article><article><p>Total variation</p><strong id="tv-value"></strong><span>half the summed absolute difference</span></article><article><p>Selection policy</p><strong>Argmax</strong><span>highest weight becomes the command</span></article></div>
       <details class="method"><summary>How the divergence was computed</summary>
-        <p>Let P be C’s vector after <code>base</code> and Q its vector after <code>bsln</code>. Align the same 64 words and set M = (P + Q) / 2.</p>
+        <p>In the <a href="data.json">comparison JSON</a>, P is C’s vector after <code>base</code> and Q is its vector after <code>bsln</code>. The active rule was hidden in both requests. Align the same 64 words and set M = (P + Q) / 2.</p>
         <p class="formula">JS(P,Q) = ½ Σ P(w) log₂[P(w)/M(w)] + ½ Σ Q(w) log₂[Q(w)/M(w)]</p>
         <p class="formula">TV(P,Q) = ½ Σ |P(w) − Q(w)|</p>
         <p>Zero-weight terms contribute zero. No smoothing is used. Vectors are divided by their totals only to remove floating-point sum error. All calculations use unrounded values, including words omitted from the small chart.</p>

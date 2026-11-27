@@ -1392,7 +1392,19 @@
       "input_totals": [
         1.0000000000000007,
         0.9999999999999996
-      ]
+      ],
+      "conditions": {
+        "p": {
+          "receiver_arm": "elide_second",
+          "fragment": "base",
+          "active_rule_disclosed": false
+        },
+        "q": {
+          "receiver_arm": "alternating",
+          "fragment": "bsln",
+          "active_rule_disclosed": false
+        }
+      }
     },
     "result": {
       "word": "baseline",

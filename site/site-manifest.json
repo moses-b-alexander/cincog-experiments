@@ -18,13 +18,13 @@
     },
     {
       "path": "data.js",
-      "sha256": "93131abe20bab02b6651d98b32640f85b694e47f1723da023c0500cb117b3e2a",
-      "bytes": 36123
+      "sha256": "800d9ef9029fe7ed3cc45ee0a4d0b2589d2061debac763d3bfe0d0f634bceefd",
+      "bytes": 36320
     },
     {
       "path": "data.json",
-      "sha256": "11eadc3f89b044a8e5343577c5589b545fa6c11eb378c28d86311952573234a9",
-      "bytes": 56695
+      "sha256": "b3309cf25a0a86c402b1ee01a4d5a8db2df18d896a00187f170e45b2c7865315",
+      "bytes": 57014
     },
     {
       "path": "downloads/cincog-c4-reproduce.zip",
@@ -53,13 +53,18 @@
     },
     {
       "path": "index.html",
-      "sha256": "c9df1788caf53c22cc3760b5f4c83afac939d0014ca764a5f50779c2237952eb",
-      "bytes": 11269
+      "sha256": "59d3190a6da060c421c5b3220cc3de6ec0faa5c5601e95740c66c20ff0c8fe7a",
+      "bytes": 11373
+    },
+    {
+      "path": "methods.html",
+      "sha256": "73f5af8288a693c548739bcd87e17a01e5ed29202532c244300dc2a0e26d220a",
+      "bytes": 7445
     },
     {
       "path": "styles.css",
-      "sha256": "cac68be73bbf7050d64fb998e8e542307030b7b1555f6dc4364e5dd1aa1751fd",
-      "bytes": 11778
+      "sha256": "d870b31e22d9790bbcd9d51a1045bdc0e77df774036558584262ddd74e031d20",
+      "bytes": 12132
     },
     {
       "path": "theme.js",

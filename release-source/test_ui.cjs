@@ -26,6 +26,17 @@ const window = {};
 const context = vm.createContext({window, document, console});
 vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
 const original = JSON.stringify(window.CINCOG_DATA);
+const conditions = window.CINCOG_DATA.c4.comparison.conditions;
+for (const [key, fragment] of [['p', 'base'], ['q', 'bsln']]) {
+  const condition = conditions[key];
+  assert.equal(condition.fragment, fragment);
+  assert.equal(condition.active_rule_disclosed, false);
+  assert.equal(window.CINCOG_DATA.c4.receiver[condition.receiver_arm].body.state.observation.fragment, fragment);
+}
+const methods = fs.readFileSync(path.join(root, 'methods.html'), 'utf8');
+assert.match(html, /href="methods.html"/);
+assert.match(methods, /href="data.json"/);
+assert.match(methods, /id="dark-palette"/);
 vm.runInContext(fs.readFileSync(path.join(root, 'app.js'), 'utf8'), context);
 const el = id => elements.get(id);
 assert.match(el('agent-view').textContent, /Receiver C/);

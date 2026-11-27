@@ -69,3 +69,11 @@
   .masthead nav { margin-top: 0; }
 }
 @media print { .theme-control { display: none; } }
+
+.methods-page { max-width: 52rem; margin: 0 auto; }
+.methods-page h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+.methods-page > section { padding: 2.5rem 0; }
+.methods-page .intro h2 { margin-top: 2.5rem; }
+.methods-page .table-scroll { margin: 1.25rem 0; }
+.methods-page dt { margin: 1.25rem 0 .25rem; font-weight: 700; }
+.methods-page dd { margin: 0; }

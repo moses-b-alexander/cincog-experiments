@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="The Windows hardware, Ollama interfaces, context settings and probability measurements used in Cincog's C4 word game.">
+  <title>C4 hardware and scoring methods · Cincog</title>
+  <link rel="stylesheet" href="styles.css">
+  <link id="dark-palette" rel="stylesheet" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+  <script src="theme.js"></script>
+</head>
+<body>
+  <a class="skip" href="#hardware">Skip to the methods</a>
+  <header class="masthead">
+    <a class="brand" href="index.html" aria-label="Cincog, Communication IN Coordinated Games">Cincog<span><b>C</b>ommunication <b>IN</b> <b>Co</b>ordinated <b>G</b>ames</span></a>
+    <div class="masthead-tools">
+      <nav aria-label="Experiment"><a href="index.html">C4 walkthrough</a><a href="data.json">Comparison JSON</a></nav>
+      <label class="theme-control" id="theme-control" hidden>Theme
+        <select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+      </label>
+    </div>
+  </header>
+  <main class="methods-page">
+    <section class="intro" id="hardware" aria-labelledby="title">
+      <h1 id="title">Hardware and scoring methods</h1>
+      <p class="lede">Each C4 receiver chooses among 64 eight-letter words. The bank sets the legal actions, the serving interface determines which scores we can read, and the viewer chooses how many to display.</p>
+      <h2>The study machine</h2>
+      <p>The earlier five-checkpoint receiver study used Windows 11, Ollama 0.40.15 and an NVIDIA GeForce RTX 4060 with 8 GiB of VRAM, one checkpoint at a time. The local GPU and installed client version were checked again on November 27, 2026. The separately published Kev episode identifies the model tag <code>kev:0.8b-q8_0</code>. Its record omits a weight digest and per-call server version. <a href="evidence/provenance.json">Episode provenance</a></p>
+      <div class="table-scroll"><table>
+        <caption>Allocated context reported during the earlier native receiver study</caption>
+        <thead><tr><th scope="col">Checkpoint</th><th scope="col">Context (tokens)</th></tr></thead>
+        <tbody><tr><th scope="row">Kev 0.8B</th><td>73,728</td></tr><tr><th scope="row">D3 2B and 4B</th><td>4,096</td></tr><tr><th scope="row">Kev 4B and 9B</th><td>2,048</td></tr></tbody>
+      </table></div>
+      <p>These settings describe those runs. Instructions, clue, menu labels, descriptions and formatting all consume input tokens. Equal-length words can tokenize differently across checkpoints. Increasing the configured context also increases memory demand. <a href="https://docs.ollama.com/context-length">Ollama context documentation</a></p>
+    </section>
+    <section aria-labelledby="menus"><h2 id="menus">Menu width and top K</h2>
+      <dl>
+        <dt>64 legal actions</dt><dd>The native decision request offers one named option per word. Ollama documents 2–26 options per choice. Five checkpoints in the earlier local receiver study and six more in narrower qualification runs returned complete 64-word vectors. Wider menus and other server versions need their own checks. The documented cloud count of 64 refers to questions per request. <a href="https://docs.ollama.com/capabilities/decision">Decision API</a></dd>
+        <dt>Token scores returned by a server</dt><dd>The tested Ollama chat route capped <code>top_logprobs</code> at 20 vocabulary alternatives. Those tokens can include punctuation, fragments or tokens outside the legal menu. The conventional C4 scorer used llama.cpp to read pre-sampling token scores for all legal codes. <a href="https://docs.ollama.com/api/chat">Ollama chat API</a></dd>
+        <dt>Top K shown to a reader</dt><dd>Once the full legal vector is saved, any number of rows can be shown with the omitted mass. In the earlier 3,000 assigned receiver decisions for Kev 0.8B, the top 20 legal words held 60.99% of the model’s probability mass on average. A top-20 display alone would conceal roughly two fifths of that distribution.</dd>
+      </dl>
+      <p>Eight letters make both half-word and alternating clues exactly four characters long. That controls visible clue length. A future comparison can change the number of words while keeping the cardinality equal across its treatment groups. Check each rendered prompt, the endpoint’s option width and the complete score readout at the proposed size.</p>
+    </section>
+    <section aria-labelledby="scores"><h2 id="scores">How actions are scored</h2>
+      <p><strong>Native System One.</strong> We read the probability returned for every named option. For the public episode, the host chose the highest-weight word in each receiver reply.</p>
+      <p><strong>Conventional language models.</strong> A checkpoint and serving route qualify for distribution comparisons when they expose the model’s own token probabilities or logits for all offered codes. At the exact answer position, each action must have a distinct single-token code. We record the total probability assigned to legal codes and divide each code’s probability by that total. C4 does not ask the model to invent percentages for its options.</p>
+      <p>Asking a model to write percentages, reading its next-token distribution and letting it write a full answer are three different protocols. Meister and colleagues found that changing the protocol changed how closely outputs matched human response distributions. Wang and colleagues observed disagreements between the first-token ranking and the eventual multiple-choice answer. C4 defines the action at the scored position and records the host’s selection rule. <a href="https://aclanthology.org/2025.naacl-long.2/">Benchmarking Distributional Alignment of Large Language Models</a> · <a href="https://aclanthology.org/2024.findings-acl.441/">“My Answer is C”</a></p>
+    </section>
+    <section aria-labelledby="json"><h2 id="json">Reading the comparison JSON</h2>
+      <p>In <code>c4.comparison</code>, <code>p</code> describes the receiver shown <strong>base</strong> and <code>q</code> the receiver shown <strong>bsln</strong>. Both saw the same 64 words and possible rules. In both cases the host withheld the active rule. Each row refers to one word. <a href="data.json">Read the vectors and condition labels</a></p>
+      <p><strong>Total variation</strong> (<code>tv</code>) is half the sum of the absolute differences between aligned probabilities. Here it is 0.04475, meaning 4.475% of the probability mass would need to move between words to turn one distribution into the other. A row’s <code>tv</code> is that word’s contribution.</p>
+      <p><strong>Jensen–Shannon divergence</strong> (<code>js_bits</code>) averages the two KL divergences to the midpoint distribution using base-two logarithms. The recorded vectors differ by 0.002242 bits. To measure how a model responds to disclosure, hold the target and clue fixed and show the rule in one arm. To calculate how many bits the label carries about the target, specify the target and rule probabilities and average over the possible clues. <a href="index.html#comparison">Inspect the recorded choices</a></p>
+    </section>
+  </main>
+</body>
+</html>
