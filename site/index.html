@@ -6,14 +6,21 @@
   <meta name="description" content="Inspect one recorded coordination decision: what each participant saw, how a clue changed a native probability distribution, and what the experimenter knew.">
   <title>Cincog · One decision, different information</title>
   <link rel="stylesheet" href="styles.css">
+  <link id="dark-palette" rel="stylesheet" href="dark.css" media="screen and (prefers-color-scheme: dark)">
+  <script src="theme.js"></script>
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#decision">Skip to the experiment</a>
   <header class="masthead">
-    <a class="brand" href="#top">CINCOG<span>Communication in coordinated games</span></a>
-    <nav aria-label="Page sections"><a href="#decision">C4 decision</a><a href="#c2">C2 refinement</a><a href="#reproduce">Reproduce</a></nav>
+    <a class="brand" href="#top" aria-label="Cincog, Communication IN Coordinated Games">Cincog<span><b>C</b>ommunication <b>IN</b> <b>Co</b>ordinated <b>G</b>ames</span></a>
+    <div class="masthead-tools">
+      <nav aria-label="Page sections"><a href="#decision">C4 decision</a><a href="#c2">C2 refinement</a><a href="#reproduce">Reproduce</a></nav>
+      <label class="theme-control" id="theme-control" hidden>Theme
+        <select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+      </label>
+    </div>
   </header>
   <main id="top">
     <section class="intro">

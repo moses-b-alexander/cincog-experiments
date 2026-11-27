@@ -76,4 +76,39 @@ for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
   if (ref.startsWith('#')) assert(elements.has(ref.slice(1)), 'broken anchor: ' + ref);
   else if (!/^[a-z]+:/.test(ref)) assert(fs.existsSync(path.join(root, ref)), 'missing local asset: ' + ref);
 }
-console.log('PASS: fixed-decision A/C views, independent reveal, immutable evidence, full-menu filtering, legal-source inspector, shared scale and local links. Rendered browser QA not performed.');
+// Start with a previously saved dark setting, then return to the system preference.
+const systemMedia = 'screen and (prefers-color-scheme: dark)';
+const palette = el('dark-palette');
+const theme = el('theme');
+const storage = new Map([['cincog-experiments.theme', 'dark']]);
+const themeScript = fs.readFileSync(path.join(root, 'theme.js'), 'utf8');
+const themeDocument = new Element();
+themeDocument.getElementById = document.getElementById;
+function loadTheme(localStorage) {
+  palette.media = systemMedia;
+  vm.runInNewContext(themeScript, { document: themeDocument, localStorage });
+  themeDocument.handlers.DOMContentLoaded();
+}
+loadTheme({
+  getItem: key => storage.get(key),
+  setItem: (key, value) => storage.set(key, value),
+  removeItem: key => storage.delete(key)
+});
+assert.equal(palette.media, 'screen');
+assert.equal(theme.value, 'dark');
+theme.value = 'light';
+theme.handlers.change();
+assert.equal(palette.media, 'not all');
+assert.equal(storage.get('cincog-experiments.theme'), 'light');
+theme.value = 'system';
+theme.handlers.change();
+assert.equal(palette.media, systemMedia);
+assert.equal(storage.size, 0);
+
+// Browsers may disallow local storage for the offline copy.
+loadTheme(undefined);
+assert.equal(theme.value, 'system');
+theme.value = 'dark';
+theme.handlers.change();
+assert.equal(palette.media, 'screen');
+console.log('PASS: agent views, reveal, evidence, filtering, legal sources, chart scale, local links and theme preferences.');
