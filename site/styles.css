@@ -52,6 +52,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.masthead nav,.segmented,button,.search-label{display:none}main{max-width:none;padding:0}main>section{padding:1.5rem 0}.experiment-grid,.c2-grid{display:block}details{display:block}.chart-panel,.view-panel,.context-panel{break-inside:avoid}body{background:white}}
 .brand { letter-spacing: -.025em; font-size: 1.5rem; }
 .brand span { color: var(--muted); }
+#filter::placeholder { color: var(--muted); opacity: 1; }
 .brand b { color: var(--ink); font-weight: 750; }
 .masthead-tools, .theme-control {
   display: flex;
