@@ -78,17 +78,17 @@
     },
     {
       "path": "index.html",
-      "sha256": "9953b32c79f104f02b216c46ddb98861c0fd704138f0c9e47059862f4d95e126",
+      "sha256": "2e75a743edd43e46cbafe03cf3061574f4f46b7e7c8f13242dae3714d525b562",
       "bytes": 8606
     },
     {
       "path": "methods.html",
-      "sha256": "9d82d64a263f89911e3457cbc6a29ff9716c33b5b2a1e2270daf3e0bec088da1",
+      "sha256": "bd34bb02b79feb5e975daaae3f0636bfb55134eb53641e9e8a770755994d92ec",
       "bytes": 4793
     },
     {
       "path": "pilot/index.html",
-      "sha256": "d3eb48bc20a0438dd0c180649db7d5b8f3885b6a932a7a47a72ce257086f7122",
+      "sha256": "d86dd2dd30b7e47421956692b63d1008a7f7be058a0b49476a31a56c7285acc2",
       "bytes": 5245
     },
     {
@@ -203,7 +203,7 @@
     },
     {
       "path": "word-graphs.html",
-      "sha256": "e7e4b56bcaa1e61a045f984dc64762854eeb42083f196ec4fec69962d5cba51e",
+      "sha256": "e9ee8c8b0027e4f0adc988f24168f24fbe421bcdd8a0887e4b32ffcfc0acddbe",
       "bytes": 4414
     }
   ]
