@@ -128,8 +128,7 @@ def render(records,out):
             "series":series,"decisions":rows,
             "record_sha256":{n:hashlib.sha256(p.read_bytes()).hexdigest() for n,p in records.items()}}
     (out/"results.json").write_text(json.dumps(report,allow_nan=False,indent=1)+"\n",encoding="utf8")
-    display={k:report[k] for k in ("arms","products","summary","mean_target_surprisal_bits")}
-    display["decisions"]=[{k:v for k,v in row.items() if k!="probabilities"} for row in rows]
+    display={k:report[k] for k in ("arms","products","bank","decisions","summary","mean_target_surprisal_bits")}
     display["curve_points"]={model:{arm:{metric:{str(k):values[k-1] for k in (1,3,5,10,20,32,64)}
                     for metric,values in metrics.items()} for arm,metrics in curves_by_arm.items()}
                     for model,curves_by_arm in series.items()}

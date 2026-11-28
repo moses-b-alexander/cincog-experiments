@@ -8,10 +8,20 @@
 <main id="study" class="pilot-page"><section class="intro"><p class="eyebrow">C4 · Native receiver study</p><h1>Whole word or half?</h1>
 <p class="lede">Five decision models saw the same three targets. Each receiver got the whole word, its first four letters or its last four letters and chose from the original 64-word menu.</p>
 <p id="headline">Exact recovery on the three selected words · Whole word 15/15 · First half 6/15 · Last half 3/15</p><p><a href="#cases">Inspect the individual decisions</a> · <a href="results.json">Full vectors and chart data</a> · <a href="records.zip">Registered records and replay instructions</a></p></section>
-<section><h2>How much weight did the target receive?</h2>
-<p>Each cell averages the three probabilities assigned to the correct word. The color scale runs from 0% to 100% across the entire grid.</p>
+<section id="heatmap"><h2>Which words did the clue bring to mind?</h2>
+<p>Pick the letters a model received. Read across a row to see its highest-probability words. Compare rules to see what the same model chose when it saw different letters from the same target.</p>
+<div class="plot-controls heat-controls"><label>Clue received <select id="heat-clue"></select></label>
+<label>Model <select id="heat-model"><option value="All">All five</option></select></label>
+<label>Words per row <select id="heat-k"><option>3</option><option selected>5</option><option>10</option></select></label>
+<label class="compare-toggle"><input type="checkbox" id="heat-compare" checked> Compare rules for this target</label></div>
+<p id="heat-status" aria-live="polite"></p><div class="heat-scale" aria-hidden="true"><span>0%</span><i></i><span>100%</span></div>
+<div id="word-heatmaps"></div>
+<p class="small">Each row uses the original 64-word distribution. “Other” sums the remaining words. The receiver saw the letters and menu. The rule labels here come from the experiment record.</p>
+<noscript><p>The interactive heatmap needs JavaScript. The full vectors are in <a href="results.json">the results file</a>.</p></noscript>
+<details><summary>Average target probability and exact recoveries</summary>
+<p>Each cell averages the three probabilities assigned to the correct word.</p>
 <figure><img src="target-heatmap.svg" alt="Heatmap of mean true-word probability by model and clue. A numerical table follows the figure."></figure>
-<details><summary>Cell values and exact recoveries</summary><div class="table-scroll"><table><thead><tr><th>Model</th><th>Clue</th><th>Mean target weight</th><th>Correct / trials</th><th>Mean Brier</th></tr></thead><tbody id="cells"></tbody></table></div></details></section>
+<div class="table-scroll"><table><thead><tr><th>Model</th><th>Clue</th><th>Mean target weight</th><th>Correct / trials</th><th>Mean Brier</th></tr></thead><tbody id="cells"></tbody></table></div></details></section>
 <section><h2>How far down the ranking was the target?</h2>
 <p>The rank CDF shows the fraction of targets found in the first k words. At k = 1 it equals exact recovery. The probability-mass view instead sums the k largest weights per reply and averages those sums.</p>
 <div class="plot-controls"><label>Model <select id="model"><option>All</option></select></label>

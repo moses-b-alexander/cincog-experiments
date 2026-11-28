@@ -14512,7 +14512,7 @@
   {
    "id": "six",
    "family": "Six letters · disclosure",
-   "name": "Balanced deletions",
+   "name": "16 words",
    "purpose": "Sixteen words selected for rule disclosure. SURE can arrive from UNSURE, SUTURE or SURETY through three different deletions.",
    "notes": "The earlier 16-word preview gave 0.099 bits per rule. This bank gives 0.896 bits under each rule. Fourteen strings cross rules and 34 of 48 assignments benefit. Ideal recovery rises from 28/48 to 47/48. The finite search used 8,255 six-letter forms. An independently checked bound of 1.005 bits leaves a gap to the global optimum on this pool. LIVEST, LIEDER and VESTAL illustrate the vocabulary cost of purely information-based selection.",
    "words": [
@@ -14936,7 +14936,1017 @@
    },
    "disclosure_bits": 0.896240625180289,
    "lexicon_pool_sha256": "1a22c7e34571c6f2ac097f18798bd4c70e95d28844a0342998ffcab36245a102",
-   "studied_bound_bits": 1.005
+   "studied_bound_bits": 1.005,
+   "ideal_recovery": {
+    "hidden": 28,
+    "shown": 47,
+    "total": 48
+   }
+  },
+  {
+   "id": "six32",
+   "family": "Six letters · disclosure",
+   "name": "32 words",
+   "purpose": "The original 16 words plus 16 additions selected for disclosure across all three pair deletions.",
+   "notes": "All 16 original words keep their menu positions. On the frozen pool of 8,255 forms, the search prioritized the lowest of three rule-specific mean gains. An independently verified ceiling of 0.9479 bits applies to extensions retaining the original 16. The search found a feasible bank. Its global optimality is open. SPREED and LIEDER illustrate the vocabulary trade-off.",
+   "words": [
+    "staled",
+    "unreal",
+    "livest",
+    "vestal",
+    "lieder",
+    "surety",
+    "listed",
+    "reveal",
+    "retype",
+    "realty",
+    "relive",
+    "unsure",
+    "enlist",
+    "suture",
+    "allied",
+    "repeal",
+    "dialed",
+    "direst",
+    "distal",
+    "herein",
+    "lisped",
+    "pealed",
+    "redial",
+    "reedit",
+    "reined",
+    "relist",
+    "rested",
+    "retain",
+    "sadist",
+    "sphere",
+    "spreed",
+    "surest"
+   ],
+   "rules": [
+    "delete_first",
+    "delete_middle",
+    "delete_last"
+   ],
+   "clues": {
+    "staled": {
+     "delete_first": "aled",
+     "delete_middle": "sted",
+     "delete_last": "stal"
+    },
+    "unreal": {
+     "delete_first": "real",
+     "delete_middle": "unal",
+     "delete_last": "unre"
+    },
+    "livest": {
+     "delete_first": "vest",
+     "delete_middle": "list",
+     "delete_last": "live"
+    },
+    "vestal": {
+     "delete_first": "stal",
+     "delete_middle": "veal",
+     "delete_last": "vest"
+    },
+    "lieder": {
+     "delete_first": "eder",
+     "delete_middle": "lier",
+     "delete_last": "lied"
+    },
+    "surety": {
+     "delete_first": "rety",
+     "delete_middle": "suty",
+     "delete_last": "sure"
+    },
+    "listed": {
+     "delete_first": "sted",
+     "delete_middle": "lied",
+     "delete_last": "list"
+    },
+    "reveal": {
+     "delete_first": "veal",
+     "delete_middle": "real",
+     "delete_last": "reve"
+    },
+    "retype": {
+     "delete_first": "type",
+     "delete_middle": "repe",
+     "delete_last": "rety"
+    },
+    "realty": {
+     "delete_first": "alty",
+     "delete_middle": "rety",
+     "delete_last": "real"
+    },
+    "relive": {
+     "delete_first": "live",
+     "delete_middle": "reve",
+     "delete_last": "reli"
+    },
+    "unsure": {
+     "delete_first": "sure",
+     "delete_middle": "unre",
+     "delete_last": "unsu"
+    },
+    "enlist": {
+     "delete_first": "list",
+     "delete_middle": "enst",
+     "delete_last": "enli"
+    },
+    "suture": {
+     "delete_first": "ture",
+     "delete_middle": "sure",
+     "delete_last": "sutu"
+    },
+    "allied": {
+     "delete_first": "lied",
+     "delete_middle": "aled",
+     "delete_last": "alli"
+    },
+    "repeal": {
+     "delete_first": "peal",
+     "delete_middle": "real",
+     "delete_last": "repe"
+    },
+    "dialed": {
+     "delete_first": "aled",
+     "delete_middle": "died",
+     "delete_last": "dial"
+    },
+    "direst": {
+     "delete_first": "rest",
+     "delete_middle": "dist",
+     "delete_last": "dire"
+    },
+    "distal": {
+     "delete_first": "stal",
+     "delete_middle": "dial",
+     "delete_last": "dist"
+    },
+    "herein": {
+     "delete_first": "rein",
+     "delete_middle": "hein",
+     "delete_last": "here"
+    },
+    "lisped": {
+     "delete_first": "sped",
+     "delete_middle": "lied",
+     "delete_last": "lisp"
+    },
+    "pealed": {
+     "delete_first": "aled",
+     "delete_middle": "peed",
+     "delete_last": "peal"
+    },
+    "redial": {
+     "delete_first": "dial",
+     "delete_middle": "real",
+     "delete_last": "redi"
+    },
+    "reedit": {
+     "delete_first": "edit",
+     "delete_middle": "reit",
+     "delete_last": "reed"
+    },
+    "reined": {
+     "delete_first": "ined",
+     "delete_middle": "reed",
+     "delete_last": "rein"
+    },
+    "relist": {
+     "delete_first": "list",
+     "delete_middle": "rest",
+     "delete_last": "reli"
+    },
+    "rested": {
+     "delete_first": "sted",
+     "delete_middle": "reed",
+     "delete_last": "rest"
+    },
+    "retain": {
+     "delete_first": "tain",
+     "delete_middle": "rein",
+     "delete_last": "reta"
+    },
+    "sadist": {
+     "delete_first": "dist",
+     "delete_middle": "sast",
+     "delete_last": "sadi"
+    },
+    "sphere": {
+     "delete_first": "here",
+     "delete_middle": "spre",
+     "delete_last": "sphe"
+    },
+    "spreed": {
+     "delete_first": "reed",
+     "delete_middle": "sped",
+     "delete_last": "spre"
+    },
+    "surest": {
+     "delete_first": "rest",
+     "delete_middle": "sust",
+     "delete_last": "sure"
+    }
+   },
+   "positions": {
+    "staled": [
+     341.21,
+     204.47
+    ],
+    "unreal": [
+     348.17,
+     364.18
+    ],
+    "livest": [
+     424.7,
+     205.25
+    ],
+    "vestal": [
+     363.45,
+     261.44
+    ],
+    "lieder": [
+     277.53,
+     116.21
+    ],
+    "surety": [
+     539.7,
+     345.83
+    ],
+    "listed": [
+     387.21,
+     157.84
+    ],
+    "reveal": [
+     358.6,
+     318.88
+    ],
+    "retype": [
+     434.28,
+     391.52
+    ],
+    "realty": [
+     398.96,
+     355.82
+    ],
+    "relive": [
+     473.77,
+     277.58
+    ],
+    "unsure": [
+     518.88,
+     322.9
+    ],
+    "enlist": [
+     471.55,
+     148.52
+    ],
+    "suture": [
+     630.66,
+     313.97
+    ],
+    "allied": [
+     262.47,
+     169.42
+    ],
+    "repeal": [
+     282.49,
+     342.78
+    ],
+    "dialed": [
+     212.22,
+     228.28
+    ],
+    "direst": [
+     441.01,
+     234.59
+    ],
+    "distal": [
+     295.87,
+     253.73
+    ],
+    "herein": [
+     696.65,
+     91.61
+    ],
+    "lisped": [
+     367.98,
+     107.2
+    ],
+    "pealed": [
+     232.62,
+     255.68
+    ],
+    "redial": [
+     260.54,
+     310.66
+    ],
+    "reedit": [
+     578.82,
+     140.72
+    ],
+    "reined": [
+     634.19,
+     154.82
+    ],
+    "relist": [
+     511.5,
+     215.66
+    ],
+    "rested": [
+     506.07,
+     185.53
+    ],
+    "retain": [
+     753.86,
+     137.91
+    ],
+    "sadist": [
+     269.49,
+     202.31
+    ],
+    "sphere": [
+     589.81,
+     57.3
+    ],
+    "spreed": [
+     513.21,
+     112.98
+    ],
+    "surest": [
+     558.53,
+     262.39
+    ]
+   },
+   "labels": [
+    "listed",
+    "rested",
+    "staled",
+    "relist",
+    "reveal",
+    "realty"
+   ],
+   "edges": [
+    {
+     "a": "staled",
+     "b": "vestal",
+     "same": [],
+     "clues": [
+      "stal"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "listed",
+     "same": [],
+     "clues": [
+      "sted"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "allied",
+     "same": [],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "dialed",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "distal",
+     "same": [],
+     "clues": [
+      "stal"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "pealed",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "staled",
+     "b": "rested",
+     "same": [],
+     "clues": [
+      "sted"
+     ]
+    },
+    {
+     "a": "unreal",
+     "b": "reveal",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "unreal",
+     "b": "realty",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "unreal",
+     "b": "unsure",
+     "same": [],
+     "clues": [
+      "unre"
+     ]
+    },
+    {
+     "a": "unreal",
+     "b": "repeal",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "unreal",
+     "b": "redial",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "livest",
+     "b": "vestal",
+     "same": [],
+     "clues": [
+      "vest"
+     ]
+    },
+    {
+     "a": "livest",
+     "b": "listed",
+     "same": [],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "livest",
+     "b": "relive",
+     "same": [],
+     "clues": [
+      "live"
+     ]
+    },
+    {
+     "a": "livest",
+     "b": "enlist",
+     "same": [],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "livest",
+     "b": "relist",
+     "same": [],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "vestal",
+     "b": "reveal",
+     "same": [],
+     "clues": [
+      "veal"
+     ]
+    },
+    {
+     "a": "vestal",
+     "b": "distal",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "stal"
+     ]
+    },
+    {
+     "a": "lieder",
+     "b": "listed",
+     "same": [],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "lieder",
+     "b": "allied",
+     "same": [],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "lieder",
+     "b": "lisped",
+     "same": [],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "surety",
+     "b": "retype",
+     "same": [],
+     "clues": [
+      "rety"
+     ]
+    },
+    {
+     "a": "surety",
+     "b": "realty",
+     "same": [],
+     "clues": [
+      "rety"
+     ]
+    },
+    {
+     "a": "surety",
+     "b": "unsure",
+     "same": [],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "surety",
+     "b": "suture",
+     "same": [],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "surety",
+     "b": "surest",
+     "same": [
+      "delete_last"
+     ],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "listed",
+     "b": "enlist",
+     "same": [],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "listed",
+     "b": "allied",
+     "same": [],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "listed",
+     "b": "lisped",
+     "same": [
+      "delete_middle"
+     ],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "listed",
+     "b": "relist",
+     "same": [],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "listed",
+     "b": "rested",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "sted"
+     ]
+    },
+    {
+     "a": "reveal",
+     "b": "realty",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "reveal",
+     "b": "relive",
+     "same": [],
+     "clues": [
+      "reve"
+     ]
+    },
+    {
+     "a": "reveal",
+     "b": "repeal",
+     "same": [
+      "delete_middle"
+     ],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "reveal",
+     "b": "redial",
+     "same": [
+      "delete_middle"
+     ],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "retype",
+     "b": "realty",
+     "same": [],
+     "clues": [
+      "rety"
+     ]
+    },
+    {
+     "a": "retype",
+     "b": "repeal",
+     "same": [],
+     "clues": [
+      "repe"
+     ]
+    },
+    {
+     "a": "realty",
+     "b": "repeal",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "realty",
+     "b": "redial",
+     "same": [],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "relive",
+     "b": "relist",
+     "same": [
+      "delete_last"
+     ],
+     "clues": [
+      "reli"
+     ]
+    },
+    {
+     "a": "unsure",
+     "b": "suture",
+     "same": [],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "unsure",
+     "b": "surest",
+     "same": [],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "enlist",
+     "b": "relist",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "list"
+     ]
+    },
+    {
+     "a": "suture",
+     "b": "surest",
+     "same": [],
+     "clues": [
+      "sure"
+     ]
+    },
+    {
+     "a": "allied",
+     "b": "dialed",
+     "same": [],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "allied",
+     "b": "lisped",
+     "same": [],
+     "clues": [
+      "lied"
+     ]
+    },
+    {
+     "a": "allied",
+     "b": "pealed",
+     "same": [],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "repeal",
+     "b": "pealed",
+     "same": [],
+     "clues": [
+      "peal"
+     ]
+    },
+    {
+     "a": "repeal",
+     "b": "redial",
+     "same": [
+      "delete_middle"
+     ],
+     "clues": [
+      "real"
+     ]
+    },
+    {
+     "a": "dialed",
+     "b": "distal",
+     "same": [],
+     "clues": [
+      "dial"
+     ]
+    },
+    {
+     "a": "dialed",
+     "b": "pealed",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "aled"
+     ]
+    },
+    {
+     "a": "dialed",
+     "b": "redial",
+     "same": [],
+     "clues": [
+      "dial"
+     ]
+    },
+    {
+     "a": "direst",
+     "b": "distal",
+     "same": [],
+     "clues": [
+      "dist"
+     ]
+    },
+    {
+     "a": "direst",
+     "b": "relist",
+     "same": [],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "direst",
+     "b": "rested",
+     "same": [],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "direst",
+     "b": "sadist",
+     "same": [],
+     "clues": [
+      "dist"
+     ]
+    },
+    {
+     "a": "direst",
+     "b": "surest",
+     "same": [
+      "delete_first"
+     ],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "distal",
+     "b": "redial",
+     "same": [],
+     "clues": [
+      "dial"
+     ]
+    },
+    {
+     "a": "distal",
+     "b": "sadist",
+     "same": [],
+     "clues": [
+      "dist"
+     ]
+    },
+    {
+     "a": "herein",
+     "b": "reined",
+     "same": [],
+     "clues": [
+      "rein"
+     ]
+    },
+    {
+     "a": "herein",
+     "b": "retain",
+     "same": [],
+     "clues": [
+      "rein"
+     ]
+    },
+    {
+     "a": "herein",
+     "b": "sphere",
+     "same": [],
+     "clues": [
+      "here"
+     ]
+    },
+    {
+     "a": "lisped",
+     "b": "spreed",
+     "same": [],
+     "clues": [
+      "sped"
+     ]
+    },
+    {
+     "a": "reedit",
+     "b": "reined",
+     "same": [],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "reedit",
+     "b": "rested",
+     "same": [],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "reedit",
+     "b": "spreed",
+     "same": [],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "reined",
+     "b": "rested",
+     "same": [
+      "delete_middle"
+     ],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "reined",
+     "b": "retain",
+     "same": [],
+     "clues": [
+      "rein"
+     ]
+    },
+    {
+     "a": "reined",
+     "b": "spreed",
+     "same": [],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "relist",
+     "b": "rested",
+     "same": [],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "relist",
+     "b": "surest",
+     "same": [],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "rested",
+     "b": "spreed",
+     "same": [],
+     "clues": [
+      "reed"
+     ]
+    },
+    {
+     "a": "rested",
+     "b": "surest",
+     "same": [],
+     "clues": [
+      "rest"
+     ]
+    },
+    {
+     "a": "sphere",
+     "b": "spreed",
+     "same": [],
+     "clues": [
+      "spre"
+     ]
+    }
+   ],
+   "metrics": {
+    "delete_first": {
+     "clues": 26,
+     "edges": 7,
+     "clue_bits": 4.601409765557392,
+     "disclosure_bits": 0.8827106437029106
+    },
+    "delete_middle": {
+     "clues": 28,
+     "edges": 5,
+     "clue_bits": 4.726409765557392,
+     "disclosure_bits": 0.8792409151907623
+    },
+    "delete_last": {
+     "clues": 30,
+     "edges": 2,
+     "clue_bits": 4.875,
+     "disclosure_bits": 0.8827106437029106
+    }
+   },
+   "disclosure_bits": 0.8815540675321945,
+   "lexicon_pool_sha256": "1a22c7e34571c6f2ac097f18798bd4c70e95d28844a0342998ffcab36245a102",
+   "anchor_bank": "six",
+   "studied_anchored_bound_bits": 0.9479,
+   "ideal_recovery": {
+    "hidden": 51,
+    "shown": 84,
+    "total": 96
+   }
   }
  ],
  "subtitle_source": {

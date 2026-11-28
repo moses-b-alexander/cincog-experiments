@@ -5,3 +5,25 @@
 #network .incident{stroke:var(--q);stroke-opacity:1;stroke-width:2.6}#network .dot{fill:var(--p);stroke:var(--panel);stroke-width:1.5;cursor:pointer}
 #network .chosen{fill:var(--q);stroke:var(--ink);stroke-width:2.4}#network .dim{opacity:.19}#network text{fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:3.2;stroke-linejoin:round;font-size:12px;pointer-events:none}
 #clue-detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}#clue-detail article{background:var(--surface);padding:1rem;border-radius:6px}#clue-detail article p{margin:.35rem 0}
+.graph-page { --rule-1: #154f83; --rule-2: #843f09; --rule-3: #166047; --rule-4: #703b80; }
+.graph-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:.6rem 0; }
+.graph-toolbar button { padding:.45rem .85rem; white-space:nowrap; }
+.graph-toolbar button:disabled { opacity:.55; cursor:default; }
+#rule-key h2 { font-size:1.25rem; margin:1.5rem 0 .4rem; }
+#rule-legend { list-style:none; display:flex; flex-wrap:wrap; gap:.4rem 1.35rem; padding:0; margin:0 0 1rem; }
+#rule-legend li { display:flex; align-items:center; gap:.4rem; font-weight:650; margin:0; }
+.rule-1 { color:var(--rule-1); }
+.rule-2 { color:var(--rule-2); }
+.rule-3 { color:var(--rule-3); }
+.rule-4 { color:var(--rule-4); }
+.rule-mark { display:inline-block; width:.6rem; height:.6rem; background:currentColor; flex:none; }
+.rule-mark.rule-1 { border-radius:50%; }
+.rule-mark.rule-3 { clip-path:polygon(50% 0,100% 100%,0 100%); }
+.rule-mark.rule-4 { transform:rotate(45deg); width:.5rem; height:.5rem; }
+#clue-detail h3 { display:flex; align-items:center; gap:.55rem; font-size:1.35rem; margin-bottom:1rem; }
+.condition-words + .condition-words { border-top:1px solid var(--line); padding-top:.65rem; margin-top:.65rem; }
+.condition-words h4 { font-size:.85rem; color:var(--muted); margin:0 0 .25rem; }
+.word-group { display:flex; flex-wrap:wrap; align-items:baseline; gap:.15rem .8rem; }
+.word-group small { color:var(--muted); font-variant-numeric:tabular-nums; }
+.source-word { display:inline-flex; align-items:center; gap:.34rem; font-weight:650; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }

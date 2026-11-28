@@ -45,10 +45,20 @@ for (const [arm, expected] of Object.entries({whole: 15, elide_second: 6, elide_
   assert.equal(pilot.series.All[arm].target_cdf[63], 1);
 }
 const graphs = JSON.parse(fs.readFileSync(path.join(root, 'banks.json'), 'utf8')).banks;
-assert.equal(graphs.length, 6);
+assert.equal(graphs.length, 7);
 assert(graphs.find(bank => bank.id === 'parity_default').words.includes('baseball'));
 const deletion = graphs.find(bank => bank.id === 'six');
 assert(Object.values(deletion.metrics).every(m => Math.abs(m.disclosure_bits - 0.89624062518) < 1e-9));
+const expanded = graphs.find(bank => bank.id === 'six32');
+assert.equal(new Set(expanded.words).size, 32);
+assert.deepEqual(expanded.words.slice(0,16), deletion.words);
+assert.deepEqual(expanded.ideal_recovery, {hidden:51, shown:84, total:96});
+assert(Math.abs(expanded.disclosure_bits - 0.881554068) < 1e-9);
+const pilotContext = {window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'pilot/results.js'),'utf8'), pilotContext);
+const offline = JSON.parse(JSON.stringify(pilotContext.window.C4_PILOT));
+assert.deepEqual(offline.bank,pilot.bank);
+assert.deepEqual(offline.decisions,pilot.decisions);
 assert.match(html, /href="methods.html"/);
 assert.match(methods, /href="data.json"/);
 assert.match(methods, /id="dark-palette"/);

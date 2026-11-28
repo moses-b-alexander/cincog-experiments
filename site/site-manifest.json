@@ -13,23 +13,23 @@
     },
     {
       "path": "bank-design.zip",
-      "sha256": "438244c7b26bff63b512e5b3e4c95ff0e536515b8c29db420823181a1bac519c",
-      "bytes": 55871
+      "sha256": "c6d92a8fa8e590e4835ca3aea9abccae6d5740f21d79ec09b6d69baf4b23bca0",
+      "bytes": 93279
     },
     {
       "path": "banks.js",
-      "sha256": "e1a54000d804a7b828a999d35956d524f5a4449a51c46b696fc992ad9407a609",
-      "bytes": 158521
+      "sha256": "102b36c51f728c1b9130d102c2836d1d002aea5f9ba54d9b8b737f0c875817b1",
+      "bytes": 168737
     },
     {
       "path": "banks.json",
-      "sha256": "ca1c33b052facd66c323ba511ecabd63fc17c5aef1749e92c1c78f27fa25bbde",
-      "bytes": 253223
+      "sha256": "937b54df4c4fcf7b99230265990d57b2b0ba585369c19413797a6a7132017965",
+      "bytes": 269675
     },
     {
       "path": "dark.css",
-      "sha256": "450760aa7b8983948c302f7c3683662b698643878937dbf81b600dd83f9671f5",
-      "bytes": 513
+      "sha256": "10d72f665ed75bab1ab9e80bbc218877be59a639e4050fd089b8fe03e3f4d024",
+      "bytes": 605
     },
     {
       "path": "data.js",
@@ -68,13 +68,13 @@
     },
     {
       "path": "graphs.css",
-      "sha256": "38c0d7ce22e9fb8ed024c878389ce95f6fd14738b787356e261993c52274fda8",
-      "bytes": 1207
+      "sha256": "6790bcb7f28653b89eb1bc39fe5159d8fa45d9371a3aff51cebc6c74a3f92a3d",
+      "bytes": 2913
     },
     {
       "path": "graphs.js",
-      "sha256": "939f57912f84dc5ad27500b0ca23e1eaae00daf10f11153ceaf559f9dd9b45f2",
-      "bytes": 4887
+      "sha256": "77bc3674d19fd8c061ef87b28738c2af82d86e525d28ca30c0f9b5e3df6a1fc5",
+      "bytes": 8212
     },
     {
       "path": "index.html",
@@ -88,8 +88,8 @@
     },
     {
       "path": "pilot/index.html",
-      "sha256": "d916b178c700a2f7e072abf43ce84f07947c90cb4b5fcdccae944e3a07cdbfeb",
-      "bytes": 5785
+      "sha256": "f8e25dad7a80941764278de41766e19b3757a138758bf58155f647e683ef2825",
+      "bytes": 6895
     },
     {
       "path": "pilot/records.zip",
@@ -98,13 +98,13 @@
     },
     {
       "path": "pilot/render.py",
-      "sha256": "e87c02d965e4e5301f6db3844911d9b34409fd1d6728eb46c71b7b149ea24547",
-      "bytes": 7827
+      "sha256": "a9ff65165e670de7cf9fb342d084239c2f61b98270982f326ed403bf8b333c52",
+      "bytes": 7752
     },
     {
       "path": "pilot/results.js",
-      "sha256": "9d77506ce236f77b724e3eec43dae7517c0b1d351547520543632d00fe214ba7",
-      "bytes": 21399
+      "sha256": "708897faa4f01a46bb7b6efb0cf274c3d6eae98f9ea8093a59b128ecf86140c3",
+      "bytes": 123325
     },
     {
       "path": "pilot/results.json",
@@ -113,8 +113,8 @@
     },
     {
       "path": "pilot/study.css",
-      "sha256": "637dce746f820ae368f7126b429564449f0caa428705d16c3f3aefb58c97e8f6",
-      "bytes": 711
+      "sha256": "d87adf12545080fbdfbd8d7d84d03cbe06dfb7e7b487b2857a64bc9a8c528396",
+      "bytes": 2124
     },
     {
       "path": "pilot/target-bits.svg",
@@ -188,8 +188,8 @@
     },
     {
       "path": "pilot/view.js",
-      "sha256": "06c402e7963855493533085422a860e3d496f7f791870506dc2f4a1459c5a851",
-      "bytes": 2393
+      "sha256": "c996832aa8e35715ae16976bef761276a6107dda514c7a3077a06f3a5263637b",
+      "bytes": 6433
     },
     {
       "path": "styles.css",
@@ -203,8 +203,8 @@
     },
     {
       "path": "word-graphs.html",
-      "sha256": "b50c5ed233dd03a7a6d039474155be5d576a2762b25972c6e97fedc70bda0f71",
-      "bytes": 4176
+      "sha256": "959f8918efb3207fb92684b6c030547595089f4b074c1795df2baf6f9d884817",
+      "bytes": 4835
     }
   ]
 }
