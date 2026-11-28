@@ -71,8 +71,7 @@ def main():
         for label, arm in zip(('p', 'q'), ARMS)
     }
     data = {'c4': c4, 'release': '0.1.1', 'runtime_version': '0.1.0'}
-    for p in (HERE / 'web').iterdir():
-        if p.is_file(): copy(p, site / p.name)
+    shutil.copytree(HERE / 'web', site, dirs_exist_ok=True)
     (site / 'data.js').write_text('window.CINCOG_DATA = ' + json.dumps(data, ensure_ascii=True, allow_nan=False)
                                 .replace('<', '\\u003c') + ';\n', encoding='utf8')
     write(site / 'data.json', data)

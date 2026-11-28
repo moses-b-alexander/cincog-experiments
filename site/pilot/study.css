@@ -1,0 +1,5 @@
+.pilot-page{max-width:64rem}.pilot-page>section{padding:2.6rem 0}.pilot-page h1{font-size:clamp(2.8rem,6vw,4.6rem)}.pilot-page p{max-width:78ch}
+.pilot-page figure{margin:1.3rem 0;padding:clamp(.4rem,2vw,1.4rem);border:1px solid var(--line);border-radius:.5rem;background:#fff}
+.pilot-page figure img{display:block;width:100%;max-width:48rem;margin:auto;height:auto}.pilot-page .plot-controls{display:flex;flex-wrap:wrap;gap:1rem}
+.pilot-page select,.graph-page select{font:inherit;background:var(--panel);color:var(--ink);border:1px solid var(--control-border);padding:.35rem .5rem;border-radius:.3rem}
+.pilot-page .table-scroll{margin:1rem 0}.pilot-page .table-scroll table{font-variant-numeric:tabular-nums}

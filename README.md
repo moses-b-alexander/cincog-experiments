@@ -5,6 +5,12 @@ clues changed the probabilities assigned to all 64 words. The page contains
 the recorded decisions and an offline reproduction kit.
 [Open the interactive walkthrough](https://moses-b-alexander.github.io/cincog-experiments/)
 
+The [five-product receiver pilot](https://moses-b-alexander.github.io/cincog-experiments/pilot/)
+compares whole words, first halves and last halves on three matched targets.
+Its evidence ZIP contains the five registered records and an offline replay
+entry point. The [word graphs](https://moses-b-alexander.github.io/cincog-experiments/word-graphs.html)
+describe the original menu and candidate banks using exact clue enumeration.
+
 ## Inspect locally
 
 Open `site/index.html`, or run `python -m http.server 8769 --directory site`

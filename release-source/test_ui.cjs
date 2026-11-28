@@ -34,6 +34,21 @@ for (const [key, fragment] of [['p', 'base'], ['q', 'bsln']]) {
   assert.equal(window.CINCOG_DATA.c4.receiver[condition.receiver_arm].body.state.observation.fragment, fragment);
 }
 const methods = fs.readFileSync(path.join(root, 'methods.html'), 'utf8');
+const pilot = JSON.parse(fs.readFileSync(path.join(root, 'pilot/results.json'), 'utf8'));
+assert.equal(pilot.decisions.length, 45);
+assert.equal(pilot.summary.length, 15);
+for (const [arm, expected] of Object.entries({whole: 15, elide_second: 6, elide_first: 3})) {
+  const decisions = pilot.decisions.filter(row => row.arm === arm);
+  assert.equal(decisions.length, 15);
+  assert.equal(decisions.filter(row => row.correct).length, expected);
+  assert.equal(pilot.series.All[arm].target_cdf[0], expected / 15);
+  assert.equal(pilot.series.All[arm].target_cdf[63], 1);
+}
+const graphs = JSON.parse(fs.readFileSync(path.join(root, 'banks.json'), 'utf8')).banks;
+assert.equal(graphs.length, 6);
+assert(graphs.find(bank => bank.id === 'parity_default').words.includes('baseball'));
+const deletion = graphs.find(bank => bank.id === 'six');
+assert(Object.values(deletion.metrics).every(m => Math.abs(m.disclosure_bits - 0.89624062518) < 1e-9));
 assert.match(html, /href="methods.html"/);
 assert.match(methods, /href="data.json"/);
 assert.match(methods, /id="dark-palette"/);
