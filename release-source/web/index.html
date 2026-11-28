@@ -16,24 +16,25 @@
   <header class="masthead">
     <a class="brand" href="#top" aria-label="Cincog, Communication IN Coordinated Games">Cincog<span><b>C</b>ommunication <b>IN</b> <b>Co</b>ordinated <b>G</b>ames</span></a>
     <div class="masthead-tools">
-      <nav aria-label="Page sections"><a href="#decision">C4 decision</a><a href="#comparison">Clue comparison</a><a href="#reproduce">Reproduce</a></nav>
+      <nav aria-label="Research pages"><a href="index.html" aria-current="page">Overview</a><a href="pilot/index.html">Receiver study</a><a href="word-graphs.html">Word graphs</a><a href="methods.html">Methods</a></nav>
       <label class="theme-control" id="theme-control" hidden>Theme
         <select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
       </label>
     </div>
   </header>
   <main id="top">
-    <section class="intro">
-      <p class="eyebrow">v0.1.1 · An inspectable experiment</p>
-      <h1>One decision.<br>Different information.</h1>
-      <p class="lede">A sender chooses a word. A receiver sees part of it. Explore the information behind a recorded choice, then compare what changed when the clue changed.</p>
-      <div class="downloads"><a class="primary-link" href="pilot/index.html">Five-model half-word experiment</a><a href="word-graphs.html">Explore the word graphs</a></div>
-      <div class="intro-meta"><span>C4 · Word channel</span><span>Kev 0.8B · Native System One</span><span>Saved evidence · No live inference</span></div>
-      <p class="small muted">The native C4 runs used Ollama on a Windows machine with an NVIDIA GeForce RTX 4060 (8 GiB VRAM). <a href="methods.html">Hardware, menu limits and scoring methods</a></p>
+    <section class="intro lead-grid">
+      <div><p class="eyebrow">C4 · Word recovery</p><h1>What survives a missing half?</h1>
+      <p class="lede">Five decision models chose from 64 words. Each saw three targets as whole words, first halves and last halves.</p>
+      <div class="action-links"><a class="primary-link" href="pilot/index.html#heatmap">Inspect the model predictions</a><a href="word-graphs.html">Explore clue sources</a></div></div>
+      <figure class="recovery-figure"><figcaption>Exact recoveries <span>15 decisions per delivery</span></figcaption>
+      <div class="recovery-line"><span>Whole word</span><i><b style="width:100%"></b></i><strong>15/15</strong></div>
+      <div class="recovery-line"><span>First half</span><i><b style="width:40%"></b></i><strong>6/15</strong></div>
+      <div class="recovery-line"><span>Last half</span><i><b style="width:20%"></b></i><strong>3/15</strong></div>
+      <p>Targets: <b>baseline</b>, <b>snowdrop</b>, <b>starfish</b></p></figure>
     </section>
-
     <section id="decision" class="experiment" aria-labelledby="decision-title">
-      <div class="section-title"><div><p class="eyebrow">The decision stays fixed</p><h2 id="decision-title">What did each agent know?</h2></div><p class="anchor-label">Trial <code>c4/1</code><br>Receiver decision · fixed</p></div>
+      <div class="section-title"><div><p class="eyebrow">Recorded example · Kev 0.8B</p><h2 id="decision-title">One word, two viewpoints</h2></div><p class="anchor-label">Trial <code>c4/1</code><br>Receiver decision · fixed</p></div>
       <div class="experiment-grid">
         <article class="view-panel">
           <div class="segmented" role="group" aria-label="Inspect agent at the fixed decision">
@@ -41,36 +42,33 @@
             <button id="view-a" type="button" aria-pressed="false">Sender A</button>
           </div>
           <div id="agent-view" aria-live="polite"></div>
-          <details><summary>Exact request and recorded reply</summary><p class="small">The native request body is the actual model input. The admitted command is recorded separately. No chat transcript has been invented.</p><h4>Native request</h4><pre id="raw-request"></pre><h4>Native reply</h4><pre id="raw-response"></pre><h4>Admitted command</h4><pre id="raw-command"></pre></details>
-          <details><summary>The ordered 64-word menu</summary><p class="small">Both agents and both compared conditions used this same order. Each word had a null description.</p><div id="bank" class="word-bank"></div></details>
+          <details><summary>Exact request and recorded reply</summary><p class="small">The host records the request, reply and selected action.</p><h4>Native request</h4><pre id="raw-request"></pre><h4>Native reply</h4><pre id="raw-response"></pre><h4>Admitted command</h4><pre id="raw-command"></pre></details>
+          <details><summary>The ordered 64-word menu</summary><p class="small">The menu order is identical in both arms.</p><div id="bank" class="word-bank"></div></details>
         </article>
 
         <aside class="context-panel">
-          <p class="eyebrow">Information boundary</p>
-          <h3>The clue is visible.<br> The answer stays with the host.</h3>
-          <p>C received the list of possible delivery rules, its recovery objective, and the word menu. It did not receive the active rule or A’s chosen word as a separate field.</p>
-          <div class="boundary"><span>Shared</span><p>Possible rules · ordered bank · objective</p><span>Delivered to C</span><p><code>bsln</code></p><span>Held by the host</span><p>Selected word · active rule · score</p></div>
-          <p class="small">B is the deterministic host transformation. There is no B model response in this trace.</p>
+          <h3>Inside the receiver’s request</h3>
+          <div class="boundary"><span>Clue</span><p><code>bsln</code></p><span>Shared with the receiver</span><p>Possible rules, 64 words, exact-recovery objective</p><span>Known to the host</span><p>Sender’s word, active rule, final score</p></div>
           <button id="reveal" type="button" class="reveal-button" aria-expanded="false" aria-controls="host-view">Reveal experimenter information</button>
           <div id="host-view" hidden></div>
-          <p class="small muted">This reveal changes the presentation only. It never changes an agent’s recorded input.</p>
+
         </aside>
       </div>
     </section>
 
     <section id="comparison" aria-labelledby="comparison-title">
-      <div class="section-title"><div><p class="eyebrow">Same sender choice · fresh C in each arm</p><h2 id="comparison-title">A small shift changes the choice.</h2></div></div>
-      <p class="section-copy">Only the fragment changes in the two native request bodies. The model, instructions, objective and ordered menu stay the same. This comparison always shows C, even when you inspect A above.</p>
+      <div class="section-title"><div><p class="eyebrow">Same sender choice · fresh C in each arm</p><h2 id="comparison-title">From baseline to baseball</h2></div></div>
+      <p class="section-copy">The host changed the fragment and kept the target, receiver, instructions and menu fixed.</p>
       <div class="conditions">
-        <article class="condition p"><p>Matched C request</p><strong>base</strong><p>Recorded argmax <b id="p-choice"></b></p></article>
-        <article class="condition q"><p>Anchored C request</p><strong>bsln</strong><p>Recorded argmax <b id="q-choice"></b></p></article>
+        <article class="condition p"><p>First four letters</p><strong>base</strong><p>Recorded argmax <b id="p-choice"></b></p></article>
+        <article class="condition q"><p>Odd positions</p><strong>bsln</strong><p>Recorded argmax <b id="q-choice"></b></p></article>
       </div>
       <div class="chart-panel">
         <div class="chart-heading"><h3>Where the probability moved</h3><div class="legend"><span class="p-key">Saw base</span><span class="q-key">Saw bsln</span></div></div>
-        <p class="small">Each bar uses the same 0–100% scale. Words are ordered by the largest absolute change; the recorded choices are included. These are model-assigned probabilities from one request per condition.</p>
+        <p class="small">Largest changes in native probability, with both recorded choices. All bars share a 0–100% scale.</p>
         <div class="axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
         <div id="bars" aria-label="Paired model-assigned action probabilities"></div>
-        <p class="small muted">Small bars are expected: probability is spread over 64 options. Full-menu values and contributions appear below.</p>
+
       </div>
       <div class="metrics"><article><p>Jensen–Shannon divergence</p><strong id="js-value"></strong><span>bits · all 64 words</span></article><article><p>Total variation</p><strong id="tv-value"></strong><span>half the summed absolute difference</span></article><article><p>Selection policy</p><strong>Argmax</strong><span>highest weight becomes the command</span></article></div>
       <details class="method"><summary>How the divergence was computed</summary>
@@ -86,21 +84,15 @@
         <div class="table-scroll"><table><caption>Probabilities, changes and JS contributions; the totals always use the full bank.</caption><thead><tr><th scope="col">Word</th><th scope="col">P · base</th><th scope="col">Q · bsln</th><th scope="col">Change (pp)</th><th scope="col">JS (bits)</th></tr></thead><tbody id="probability-table"></tbody></table></div>
         <p id="filter-status" class="small" aria-live="polite"></p>
       </details>
-      <div class="interpretation"><h3>A vector is not a frequency estimate.</h3><p>These are native System One action probabilities from two saved requests. The host took the highest-weight action once in each condition. The two recorded responses do not estimate frequencies across repeated runs.</p><p>The native reply also reports a separate <code>confidence</code> field. It is not the chosen word’s probability. Conventional next-token scores conditioned on offered codes measure something different and are not combined with this comparison.</p></div>
     </section>
 
     <section id="reproduce" aria-labelledby="reproduce-title">
-      <p class="eyebrow">From claims back to records</p><h2 id="reproduce-title">Take the evidence with you.</h2>
-      <p class="section-copy">A static page, original records and a small offline verifier. The v0.1.1 presentation uses the pinned 0.1.0 runtime that produced the selected trace. No model account or GPU is needed for replay.</p>
-      <div class="downloads"><a class="primary-link" href="downloads/cincog-c4-reproduce.zip" download>Download the C4 reproduction kit</a><a href="evidence/c4-kev.json" download>Original C4 trace</a><a href="downloads/SHA256SUMS.txt">Download checksums</a></div>
-      <div class="reproduce-grid"><div><h3>Recompute the displayed numbers</h3><pre>python verify.py</pre><p>Checks the original trace and recomputes the probability changes and divergence across all 64 words. Uses only the Python standard library.</p></div><div><h3>Replay the C4 study</h3><pre>python -m venv env
-# Windows:
-env\Scripts\python -m pip install --no-index --no-deps wheel/cincog_framework_lab-0.1.0-py3-none-any.whl
-env\Scripts\python -I -B replay_offline.py</pre><p>Runs the scripted C4 fixture and replays the recorded Kev decisions with socket connections blocked. On macOS/Linux use <code>env/bin/python</code>; those platforms have not been qualified here.</p></div></div>
-      <details><summary>Provenance and what remains unresolved</summary><ul><li>C4 is one fixed sender choice with two fresh receiver conditions. It is not a population estimate or a test of multi-turn learning.</li><li>A strategic B, new prompts, menu order, bank membership and new downstream histories require new model requests.</li><li>The registered trace records the Kev model tag and workflow digest, but no exact weight digest or server identity. Saved-record replay is exact; fresh inference equivalence is unqualified.</li><li>Large menus, different hardware and Linux parity remain unqualified.</li><li>The release provides source for inspection and reproduction. It does not add a new software license grant.</li></ul><p><a href="evidence/provenance.json">Source revisions and evidence hashes</a> · <a href="evidence/manifest.json">Reproduction kit file manifest</a></p></details>
+      <h2 id="reproduce-title">Reproduce the Kev example</h2>
+      <p>Unzip the kit and run <code>python verify.py</code> to recompute the probabilities on all 64 words. The kit includes a pinned runtime and offline replay instructions.</p>
+      <div class="action-links"><a class="primary-link" href="downloads/cincog-c4-reproduce.zip" download>Download the kit</a><a href="evidence/c4-kev.json">Raw trace</a><a href="downloads/SHA256SUMS.txt">Checksums</a><a href="methods.html">Methods</a></div>
     </section>
   </main>
-  <footer><span>Cincog · v0.1.1 presentation and evidence release</span><span>Prepared from the verified 26 November 2026 handoff</span></footer>
+  <footer><span>Cincog · C4 coordination experiments</span><a href="evidence/provenance.json">Release provenance</a></footer>
   <noscript><p class="noscript">Enable JavaScript to inspect agent views and probabilities. The <a href="evidence/c4-kev.json">original trace</a> and <a href="downloads/cincog-c4-reproduce.zip">reproduction kit</a> remain available without it.</p></noscript>
 </body>
 </html>

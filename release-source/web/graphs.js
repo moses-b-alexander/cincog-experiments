@@ -82,6 +82,8 @@
     el('neighbors').textContent=f?(f+' · '+neighbors.size+(neighbors.size===1?' neighbor':' neighbors')+' in this view'+(neighbors.size?' · '+[...neighbors].sort().join(', '):'')):'Select a point or focus word to inspect its clues. Dashed edges connect words that collide only across different rules.';
     const details=el('clue-detail');details.replaceChildren();
     el('rule-key').hidden = !f;
+    el('clue-detail').closest('aside').hidden = !f;
+    el('network').closest('.graph-workspace').classList.toggle('has-focus',Boolean(f));
     el('rule-legend').replaceChildren(...b.rules.map(k => {
       const item = node('li','');
       item.className = 'rule-' + styles[k];
@@ -107,6 +109,11 @@
     el('disclosure').textContent='Mean disclosure gain · '+b.disclosure_bits.toFixed(3)+' bits per assignment. Lowest rule-specific mean · '+Math.min(...Object.values(b.metrics).map(m=>m.disclosure_bits)).toFixed(3)+' bits.';
     el('bank-notes').textContent=b.notes;
     el('deletion-comparison').hidden = !b.ideal_recovery;
+    if (f) {
+      const scroll=el('graph-scroll');
+      const focusX=b.positions[f][0]*chart.getBoundingClientRect().width/880;
+      scroll.scrollLeft=focusX-scroll.clientWidth/2;
+    }
   }
   function bank(){
     const b=current();fill('graph-rule',[['hidden','Rule hidden'],['shown','Same rule'],...b.rules.map(r=>[r,labels[r]])]);
@@ -119,24 +126,12 @@
   el('network').addEventListener('click',reset);
   document.addEventListener('keydown',e=>{if(e.key==='Escape' && !el('reset-graph').disabled) reset()});
   el('graph-rule').addEventListener('change',render);el('focus').addEventListener('change',render);family();
-  const query=new URLSearchParams(location.search),linked=banks.find(b=>b.id===query.get('bank'));
-  for (const b of banks.filter(item => item.ideal_recovery)) {
-    const recovery = b.ideal_recovery;
-    const rate = n => n + '/' + recovery.total + ' (' + (100*n/recovery.total).toFixed(1) + '%)';
-    const tr = node('tr','');
-    const link = node('a',b.name);
-    link.href = '?bank=' + b.id;
-    const label = node('th','');
-    label.scope = 'row';
-    label.append(link);
-    tr.append(label,node('td',rate(recovery.hidden)),node('td',rate(recovery.shown)),
-              node('td',b.disclosure_bits.toFixed(3)+' bits'),
-              node('td',Math.min(...Object.values(b.metrics).map(m=>m.disclosure_bits)).toFixed(3)+' bits'));
-    el('recovery-rows').append(tr);
-  }
+  const query=new URLSearchParams(location.search);
+  const linked=banks.find(b=>b.id===query.get('bank')) || banks.find(b=>b.id==='six32');
   if(linked){
     el('family').value=linked.family;family();el('bank-choice').value=linked.id;bank();
-    if(linked.words.includes(query.get('word')))el('focus').value=query.get('word');
+    const word=query.size ? query.get('word') : 'surety';
+    if(linked.words.includes(word))el('focus').value=word;
     if(['hidden','shown',...linked.rules].includes(query.get('rule')))el('graph-rule').value=query.get('rule');
     render();
   }

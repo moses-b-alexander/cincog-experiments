@@ -45,13 +45,10 @@ for (const [arm, expected] of Object.entries({whole: 15, elide_second: 6, elide_
   assert.equal(pilot.series.All[arm].target_cdf[63], 1);
 }
 const graphs = JSON.parse(fs.readFileSync(path.join(root, 'banks.json'), 'utf8')).banks;
-assert.equal(graphs.length, 7);
+assert.equal(graphs.length, 6);
 assert(graphs.find(bank => bank.id === 'parity_default').words.includes('baseball'));
-const deletion = graphs.find(bank => bank.id === 'six');
-assert(Object.values(deletion.metrics).every(m => Math.abs(m.disclosure_bits - 0.89624062518) < 1e-9));
 const expanded = graphs.find(bank => bank.id === 'six32');
 assert.equal(new Set(expanded.words).size, 32);
-assert.deepEqual(expanded.words.slice(0,16), deletion.words);
 assert.deepEqual(expanded.ideal_recovery, {hidden:51, shown:84, total:96});
 assert(Math.abs(expanded.disclosure_bits - 0.881554068) < 1e-9);
 const pilotContext = {window:{}};
@@ -105,7 +102,12 @@ assert.equal(window.CINCOG_DATA.c4.anchor, 'C4/C/alternating');
 for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const ref = match[1];
   if (ref.startsWith('#')) assert(elements.has(ref.slice(1)), 'broken anchor: ' + ref);
-  else if (!/^[a-z]+:/.test(ref)) assert(fs.existsSync(path.join(root, ref)), 'missing local asset: ' + ref);
+  else if (!/^[a-z]+:/.test(ref)) {
+    const [file, fragment] = ref.split('#');
+    const asset = path.join(root, file);
+    assert(fs.existsSync(asset), 'missing local asset: ' + file);
+    if (fragment) assert(fs.readFileSync(asset, 'utf8').includes('id="' + fragment + '"'), 'missing anchor: ' + ref);
+  }
 }
 // Start with a previously saved dark setting, then return to the system preference.
 const systemMedia = 'screen and (prefers-color-scheme: dark)';

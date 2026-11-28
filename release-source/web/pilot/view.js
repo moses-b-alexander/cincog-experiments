@@ -9,13 +9,14 @@
   }
   const {products,summary,decisions,arms}=study;
   for(const product of products){
-    for(const select of [el('model'),el('case-model'),el('heat-model')]) select.add(new Option(product,product));
+    for(const select of [el('model'),el('heat-model')]) select.add(new Option(product,product));
   }
-  const counts=Object.keys(arms).map(arm=>{
+  for(const arm of Object.keys(arms)){
     const trials=decisions.filter(r=>r.arm===arm);
-    return arms[arm]+' '+trials.filter(r=>r.correct).length+'/'+trials.length;
-  });
-  el('headline').textContent='Exact recovery on the three selected words · '+counts.join(' · ');
+    const group=element('div','');
+    group.append(element('small',arms[arm]+' · exact recovery'),element('strong',trials.filter(r=>r.correct).length+' / '+trials.length));
+    el('headline').append(group);
+  }
   summary.forEach(r=>row(el('cells'),[r.product,arms[r.arm],percent(r.mean_target_weight),r.hits+' / '+r.n,r.mean_brier.toFixed(3)]));
   el('bit-values').textContent=Object.entries(study.mean_target_surprisal_bits).map(([arm,n])=>arms[arm]+' '+(n===null?'∞':n.toFixed(2))+' bits').join(' · ');
   el('tags').textContent='Checkpoints · '+products.map(p=>decisions.find(r=>r.product===p).tag).join(', ');
@@ -96,6 +97,11 @@
       scroll.setAttribute('aria-label', product + ' ranked word probabilities for ' + target);
       scroll.append(table);
       area.append(scroll);
+      const selected=trials.find(r => r.arm===arm);
+      const reading=element('p',product+' ranked '+selected.choice+' first from '+selected.clue+
+        '. The target '+target+' ranked '+selected.rank+' of '+study.bank.length+' ('+percent(selected.target_weight)+').');
+      reading.className='chart-reading';
+      area.append(reading);
     }
   }
   for (const id of ['heat-clue','heat-model','heat-k','heat-compare']) el(id).addEventListener('change', heatmap);
@@ -110,12 +116,6 @@
     const tb=el('curve-points');tb.replaceChildren();
     for(const k of [1,3,5,10,20,32,64])row(tb,[k,...Object.keys(arms).map(arm=>percent(study.curve_points[model][arm][kind][k]))]);
   }
-  function cases(){
-    el('case-rows').replaceChildren();
-    for(const r of decisions.filter(r=>el('case-model').value==='All'||r.product===el('case-model').value)){
-      row(el('case-rows'),[r.product,r.target,arms[r.arm],r.clue,r.choice,r.rank,percent(r.target_weight)]);
-    }
-  }
   el('model').addEventListener('change',plot);el('measure').addEventListener('change',plot);
-  el('case-model').addEventListener('change',cases);plot();cases();
+  plot();
 })();

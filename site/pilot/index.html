@@ -3,39 +3,34 @@
 <link rel="stylesheet" id="dark-palette" href="../dark.css" media="screen and (prefers-color-scheme: dark)"><script src="../theme.js"></script><script defer src="results.js"></script><script defer src="view.js"></script></head>
 <body><a class="skip" href="#study">Skip to results</a><header class="masthead">
 <a class="brand" href="../index.html">Cincog<span><b>C</b>ommunication <b>IN</b> <b>Co</b>ordinated <b>G</b>ames</span></a>
-<div class="masthead-tools"><nav aria-label="Experiments"><a href="../index.html">Kev walkthrough</a><a href="../word-graphs.html">Word graphs</a><a href="../methods.html">Methods</a></nav>
+<div class="masthead-tools"><nav aria-label="Research pages"><a href="../index.html">Overview</a><a href="../pilot/index.html" aria-current="page">Receiver study</a><a href="../word-graphs.html">Word graphs</a><a href="../methods.html">Methods</a></nav>
 <label class="theme-control" id="theme-control" hidden>Theme <select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></header>
-<main id="study" class="pilot-page"><section class="intro"><p class="eyebrow">C4 · Native receiver study</p><h1>Whole word or half?</h1>
-<p class="lede">Five decision models saw the same three targets. Each receiver got the whole word, its first four letters or its last four letters and chose from the original 64-word menu.</p>
-<p id="headline">Exact recovery on the three selected words · Whole word 15/15 · First half 6/15 · Last half 3/15</p><p><a href="#cases">Inspect the individual decisions</a> · <a href="results.json">Full vectors and chart data</a> · <a href="records.zip">Registered records and replay instructions</a></p></section>
-<section id="heatmap"><h2>Which words did the clue bring to mind?</h2>
-<p>Pick the letters a model received. Read across a row to see its highest-probability words. Compare rules to see what the same model chose when it saw different letters from the same target.</p>
+<main id="study" class="pilot-page"><section class="intro"><p class="eyebrow">C4 · Observed receiver decisions</p><h1>Whole word or half?</h1>
+<p class="lede">Five models, three matched targets, 64 possible answers. The host delivered the letters and withheld the active rule.</p>
+<div id="headline" class="result-strip" aria-label="Exact recoveries by delivery"></div>
+<nav class="section-links" aria-label="Study figures"><a href="#heatmap">Word probabilities</a><a href="#ranks">Rank CDF</a><a href="#bits">Target surprisal</a><a href="records.zip">Download records</a></nav></section>
+<section id="heatmap"><h2>Word probabilities</h2>
+<p>Each row is one receiver’s response. Choose a clue to see its highest-ranked words.</p>
 <div class="plot-controls heat-controls"><label>Clue received <select id="heat-clue"></select></label>
 <label>Model <select id="heat-model"><option value="All">All five</option></select></label>
 <label>Words per row <select id="heat-k"><option>3</option><option selected>5</option><option>10</option></select></label>
 <label class="compare-toggle"><input type="checkbox" id="heat-compare" checked> Compare rules for this target</label></div>
 <p id="heat-status" aria-live="polite"></p><div class="heat-scale" aria-hidden="true"><span>0%</span><i></i><span>100%</span></div>
 <div id="word-heatmaps"></div>
-<p class="small">Each row uses the original 64-word distribution. “Other” sums the remaining words. The receiver saw the letters and menu. The rule labels here come from the experiment record.</p>
+<p class="small">Percentages use the full menu. “Other” adds the probability outside the displayed ranks.</p>
 <noscript><p>The interactive heatmap needs JavaScript. The full vectors are in <a href="results.json">the results file</a>.</p></noscript>
 <details><summary>Average target probability and exact recoveries</summary>
 <p>Each cell averages the three probabilities assigned to the correct word.</p>
 <figure><img src="target-heatmap.svg" alt="Heatmap of mean true-word probability by model and clue. A numerical table follows the figure."></figure>
 <div class="table-scroll"><table><thead><tr><th>Model</th><th>Clue</th><th>Mean target weight</th><th>Correct / trials</th><th>Mean Brier</th></tr></thead><tbody id="cells"></tbody></table></div></details></section>
-<section><h2>How far down the ranking was the target?</h2>
-<p>The rank CDF shows the fraction of targets found in the first k words. At k = 1 it equals exact recovery. The probability-mass view instead sums the k largest weights per reply and averages those sums.</p>
+<section id="ranks"><h2>Target rank CDF</h2>
+<p>At rank k, the curve counts how often the target appeared among the first k words. Switch to cumulative mass to see how much probability those positions held.</p>
 <div class="plot-controls"><label>Model <select id="model"><option>All</option></select></label>
 <label>Measure <select id="measure"><option value="target_cdf">Target rank CDF</option><option value="top_k_mass">Cumulative probability mass</option></select></label></div>
 <figure><img id="rank-chart" src="target_cdf-All.svg" alt="Target rank CDF for all five models. At k=5 the target appears in 15/15 whole-word, 13/15 first-half and 11/15 last-half replies."></figure><p class="small" id="curve-caption" aria-live="polite"></p>
 <details><summary>Read values along these curves</summary><div class="table-scroll"><table><thead><tr><th>k</th><th>Whole word</th><th>First half</th><th>Last half</th></tr></thead><tbody id="curve-points"></tbody></table></div></details></section>
-<section><h2>Average bits by rule</h2>
-<p>Target surprisal is −log₂ of the probability the receiver assigned to the correct word. Smaller values mean higher target probability. Uniform guessing costs six bits across 64 words. Each model and target receives equal weight.</p>
+<section id="bits"><h2>Target surprisal</h2>
+<p>Lower values mean more probability on the target. A uniform guess across 64 words costs six bits.</p>
 <figure><img src="target-bits.svg" alt="Mean target surprisal in bits by clue, with the six-bit uniform reference."></figure><p id="bit-values"></p>
-<p>The <a href="../word-graphs.html">word graphs</a> also report the ideal clue information under uniform targets and a specified rule. That diagnostic depends on the bank. Target surprisal here comes from fresh model replies.</p></section>
-<section id="cases"><h2>Which words changed the answer?</h2>
-<p>A scripted sender supplied <b>baseline</b>, <b>snowdrop</b> and <b>starfish</b> in separate trials. Their first/last clue group sizes are 3/3, 5/2 and 2/11 respectively. C saw the possible deliveries and its own clue. The host used the reported argmax.</p>
-<label>Show decisions for <select id="case-model"><option>All</option></select></label>
-<div class="table-scroll"><table><thead><tr><th>Model</th><th>Target</th><th>Arm</th><th>Clue</th><th>Choice</th><th>Target rank</th><th>Target weight</th></tr></thead><tbody id="case-rows"></tbody></table></div>
-<details><summary>Protocol and scoring</summary><p>Each product contributed one checkpoint and three matched target assignments. Each assignment generated one independent native request per arm, with the same legal menu and a fresh receiver. The hidden transformation and target were withheld as separate fields. The whole-word control delivers the unaltered target. The three deliberately selected words illustrate ambiguity in opposite directions. Product and size vary together.</p>
-<p>Ranks use the reported argmax first among tied maxima and then the original menu order. The multiclass Brier score sums (probability − observed indicator)² over all 64 options, with a range from 0 to 2. Total variation instead compares two full distributions via half their summed absolute difference.</p>
-<p id="tags"></p><p><a href="records.zip">Raw local replies, model digests, ordered registries and replay instructions</a> · <a href="render.py">Plotting source</a> · <a href="../methods.html">Hardware and scoring methods</a></p></details></section></main></body></html>
+<p>Each model and target receives equal weight. <a href="../word-graphs.html">Explore the information in the word banks.</a></p></section>
+<details><summary>Protocol and source data</summary><ul><li>One independent request per product, target and delivery. The three targets were selected in advance: baseline, snowdrop and starfish.</li><li>Ranks place the recorded argmax first among tied maxima, then follow the menu order.</li><li id="tags"></li></ul><p><a href="results.json">All 45 decisions and vectors</a> · <a href="records.zip">Raw records and replay</a> · <a href="render.py">Plotting source</a></p></details></main></body></html>

@@ -8,23 +8,23 @@
     },
     {
       "path": "app.js",
-      "sha256": "1c9fab8d460eab2e6bf4c4314a9d38919bd472a4aaadd9fc2a4e513f2d9fd5b9",
-      "bytes": 7201
+      "sha256": "0f6c61b99242d6450cbac1fdc9c2c6ec5fe4c239c7acf9eacced4a98998628a5",
+      "bytes": 6609
     },
     {
       "path": "bank-design.zip",
-      "sha256": "c6d92a8fa8e590e4835ca3aea9abccae6d5740f21d79ec09b6d69baf4b23bca0",
-      "bytes": 93279
+      "sha256": "fb668c99e0e36890724ee07048285f10bd9f8138660acdf20a308cd0de1aaa33",
+      "bytes": 61777
     },
     {
       "path": "banks.js",
-      "sha256": "102b36c51f728c1b9130d102c2836d1d002aea5f9ba54d9b8b737f0c875817b1",
-      "bytes": 168737
+      "sha256": "690db270b378521271fb0516206433d2b99d79efebc8a938e964c4e7cc350a0e",
+      "bytes": 162438
     },
     {
       "path": "banks.json",
-      "sha256": "937b54df4c4fcf7b99230265990d57b2b0ba585369c19413797a6a7132017965",
-      "bytes": 269675
+      "sha256": "3936ce7eb9a544db4022852cfb88dd87d42625b1a8f32d9b9fda3e2e1155c458",
+      "bytes": 260724
     },
     {
       "path": "dark.css",
@@ -68,28 +68,28 @@
     },
     {
       "path": "graphs.css",
-      "sha256": "6790bcb7f28653b89eb1bc39fe5159d8fa45d9371a3aff51cebc6c74a3f92a3d",
-      "bytes": 2913
+      "sha256": "495d3b49b98da2d4f258547d675cf14ad750a6e4cac96d2b8c50bd805a77d605",
+      "bytes": 4165
     },
     {
       "path": "graphs.js",
-      "sha256": "77bc3674d19fd8c061ef87b28738c2af82d86e525d28ca30c0f9b5e3df6a1fc5",
-      "bytes": 8212
+      "sha256": "b679c15257b3a5bb0127b2d705646c57a49afef8a0e6437e681df882d73e5c92",
+      "bytes": 7936
     },
     {
       "path": "index.html",
-      "sha256": "24fd989b414d8624a009289c059d688ec5ebfccbe4a49257f4b739a8da8a003e",
-      "bytes": 11546
+      "sha256": "9953b32c79f104f02b216c46ddb98861c0fd704138f0c9e47059862f4d95e126",
+      "bytes": 8606
     },
     {
       "path": "methods.html",
-      "sha256": "9233cf54b529a61625368686b806b3c860cd3c5e4902a2edb4c4257a115f11d5",
-      "bytes": 7737
+      "sha256": "9d82d64a263f89911e3457cbc6a29ff9716c33b5b2a1e2270daf3e0bec088da1",
+      "bytes": 4793
     },
     {
       "path": "pilot/index.html",
-      "sha256": "f8e25dad7a80941764278de41766e19b3757a138758bf58155f647e683ef2825",
-      "bytes": 6895
+      "sha256": "d3eb48bc20a0438dd0c180649db7d5b8f3885b6a932a7a47a72ce257086f7122",
+      "bytes": 5245
     },
     {
       "path": "pilot/records.zip",
@@ -188,13 +188,13 @@
     },
     {
       "path": "pilot/view.js",
-      "sha256": "c996832aa8e35715ae16976bef761276a6107dda514c7a3077a06f3a5263637b",
-      "bytes": 6433
+      "sha256": "1c88a9d575e52d2fc60553bf80a73b78ace708c54713643218abf24eb5d7ff95",
+      "bytes": 6438
     },
     {
       "path": "styles.css",
-      "sha256": "d870b31e22d9790bbcd9d51a1045bdc0e77df774036558584262ddd74e031d20",
-      "bytes": 12132
+      "sha256": "9f9b56686dc66dc55facf55135aa2863ed15f847c865d9bed719930e469e6291",
+      "bytes": 14693
     },
     {
       "path": "theme.js",
@@ -203,8 +203,8 @@
     },
     {
       "path": "word-graphs.html",
-      "sha256": "959f8918efb3207fb92684b6c030547595089f4b074c1795df2baf6f9d884817",
-      "bytes": 4835
+      "sha256": "e7e4b56bcaa1e61a045f984dc64762854eeb42083f196ec4fec69962d5cba51e",
+      "bytes": 4414
     }
   ]
 }

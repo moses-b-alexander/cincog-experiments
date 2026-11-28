@@ -13,8 +13,8 @@
    "id": "original",
    "family": "Original eight-letter bank",
    "name": "Original",
-   "purpose": "Historical 64-word menu. This graph explores four short-clue rules. The measured pilot used the whole word, first half and last half.",
-   "notes": "Even positions are available here as a design diagnostic. The historical Kev walkthrough delivered odd positions in its alternating arm.",
+   "purpose": "64 eight-letter words · historical menu",
+   "notes": "The receiver pilot used whole words and halves. The earlier Kev example also used odd positions.",
    "words": [
     "baseball",
     "baseband",
@@ -3797,8 +3797,8 @@
    "id": "halves_default",
    "family": "Eight letters · halves",
    "name": "Default",
-   "purpose": "A 64-word menu curated for half-word collisions.",
-   "notes": "The two variants share 52 word slots. In the default, all 64 words appear in the top 50,000 English subtitle words. Rare included changes 12 slots to lower-frequency words. Every collision across all four eight-letter masks is matched slot for slot between the two variants. The two rule families have different menus.",
+   "purpose": "64 eight-letter words · default",
+   "notes": "The two variants share 52 words. Swapping 12 slots for less frequent words preserves the collision pattern across all four letter masks.",
    "words": [
     "baseball",
     "baseline",
@@ -6869,8 +6869,8 @@
    "id": "halves_rare",
    "family": "Eight letters · halves",
    "name": "Rare included",
-   "purpose": "A 64-word menu curated for half-word collisions.",
-   "notes": "The two variants share 52 word slots. In the default, all 64 words appear in the top 50,000 English subtitle words. Rare included changes 12 slots to lower-frequency words. Every collision across all four eight-letter masks is matched slot for slot between the two variants. The two rule families have different menus.",
+   "purpose": "64 eight-letter words · rare included",
+   "notes": "The two variants share 52 words. Swapping 12 slots for less frequent words preserves the collision pattern across all four letter masks.",
    "words": [
     "baseball",
     "baseline",
@@ -9941,8 +9941,8 @@
    "id": "parity_default",
    "family": "Eight letters · alternating",
    "name": "Default",
-   "purpose": "A 64-word menu curated for both odd- and even-position collisions.",
-   "notes": "The two variants share 52 word slots. In the default, all 64 words appear in the top 50,000 English subtitle words. Rare included changes 12 slots to lower-frequency words. Every collision across all four eight-letter masks is matched slot for slot between the two variants. The two rule families have different menus.",
+   "purpose": "64 eight-letter words · default",
+   "notes": "The two variants share 52 words. Swapping 12 slots for less frequent words preserves the collision pattern across all four letter masks.",
    "words": [
     "snowball",
     "snowfall",
@@ -12227,8 +12227,8 @@
    "id": "parity_rare",
    "family": "Eight letters · alternating",
    "name": "Rare included",
-   "purpose": "A 64-word menu curated for both odd- and even-position collisions.",
-   "notes": "The two variants share 52 word slots. In the default, all 64 words appear in the top 50,000 English subtitle words. Rare included changes 12 slots to lower-frequency words. Every collision across all four eight-letter masks is matched slot for slot between the two variants. The two rule families have different menus.",
+   "purpose": "64 eight-letter words · rare included",
+   "notes": "The two variants share 52 words. Swapping 12 slots for less frequent words preserves the collision pattern across all four letter masks.",
    "words": [
     "snowball",
     "snowfall",
@@ -14510,445 +14510,11 @@
    ]
   },
   {
-   "id": "six",
-   "family": "Six letters · disclosure",
-   "name": "16 words",
-   "purpose": "Sixteen words selected for rule disclosure. SURE can arrive from UNSURE, SUTURE or SURETY through three different deletions.",
-   "notes": "The earlier 16-word preview gave 0.099 bits per rule. This bank gives 0.896 bits under each rule. Fourteen strings cross rules and 34 of 48 assignments benefit. Ideal recovery rises from 28/48 to 47/48. The finite search used 8,255 six-letter forms. An independently checked bound of 1.005 bits leaves a gap to the global optimum on this pool. LIVEST, LIEDER and VESTAL illustrate the vocabulary cost of purely information-based selection.",
-   "words": [
-    "staled",
-    "unreal",
-    "livest",
-    "vestal",
-    "lieder",
-    "surety",
-    "listed",
-    "reveal",
-    "retype",
-    "realty",
-    "relive",
-    "unsure",
-    "enlist",
-    "suture",
-    "allied",
-    "repeal"
-   ],
-   "rules": [
-    "delete_first",
-    "delete_middle",
-    "delete_last"
-   ],
-   "clues": {
-    "staled": {
-     "delete_first": "aled",
-     "delete_middle": "sted",
-     "delete_last": "stal"
-    },
-    "unreal": {
-     "delete_first": "real",
-     "delete_middle": "unal",
-     "delete_last": "unre"
-    },
-    "livest": {
-     "delete_first": "vest",
-     "delete_middle": "list",
-     "delete_last": "live"
-    },
-    "vestal": {
-     "delete_first": "stal",
-     "delete_middle": "veal",
-     "delete_last": "vest"
-    },
-    "lieder": {
-     "delete_first": "eder",
-     "delete_middle": "lier",
-     "delete_last": "lied"
-    },
-    "surety": {
-     "delete_first": "rety",
-     "delete_middle": "suty",
-     "delete_last": "sure"
-    },
-    "listed": {
-     "delete_first": "sted",
-     "delete_middle": "lied",
-     "delete_last": "list"
-    },
-    "reveal": {
-     "delete_first": "veal",
-     "delete_middle": "real",
-     "delete_last": "reve"
-    },
-    "retype": {
-     "delete_first": "type",
-     "delete_middle": "repe",
-     "delete_last": "rety"
-    },
-    "realty": {
-     "delete_first": "alty",
-     "delete_middle": "rety",
-     "delete_last": "real"
-    },
-    "relive": {
-     "delete_first": "live",
-     "delete_middle": "reve",
-     "delete_last": "reli"
-    },
-    "unsure": {
-     "delete_first": "sure",
-     "delete_middle": "unre",
-     "delete_last": "unsu"
-    },
-    "enlist": {
-     "delete_first": "list",
-     "delete_middle": "enst",
-     "delete_last": "enli"
-    },
-    "suture": {
-     "delete_first": "ture",
-     "delete_middle": "sure",
-     "delete_last": "sutu"
-    },
-    "allied": {
-     "delete_first": "lied",
-     "delete_middle": "aled",
-     "delete_last": "alli"
-    },
-    "repeal": {
-     "delete_first": "peal",
-     "delete_middle": "real",
-     "delete_last": "repe"
-    }
-   },
-   "positions": {
-    "staled": [
-     559.81,
-     304.99
-    ],
-    "unreal": [
-     338.23,
-     163.08
-    ],
-    "livest": [
-     611.57,
-     238.94
-    ],
-    "vestal": [
-     510.26,
-     231.56
-    ],
-    "lieder": [
-     761.5,
-     341.7
-    ],
-    "surety": [
-     172.35,
-     151.98
-    ],
-    "listed": [
-     683.64,
-     292.46
-    ],
-    "reveal": [
-     385.22,
-     215.91
-    ],
-    "retype": [
-     157.5,
-     213.28
-    ],
-    "realty": [
-     264.93,
-     193.77
-    ],
-    "relive": [
-     466.58,
-     256.6
-    ],
-    "unsure": [
-     260.78,
-     110.18
-    ],
-    "enlist": [
-     726.22,
-     235.32
-    ],
-    "suture": [
-     147.72,
-     92.19
-    ],
-    "allied": [
-     645.39,
-     347.23
-    ],
-    "repeal": [
-     276.32,
-     234.8
-    ]
-   },
-   "labels": [
-    "listed",
-    "reveal",
-    "realty",
-    "unreal",
-    "livest",
-    "surety"
-   ],
-   "edges": [
-    {
-     "a": "staled",
-     "b": "vestal",
-     "same": [],
-     "clues": [
-      "stal"
-     ]
-    },
-    {
-     "a": "staled",
-     "b": "listed",
-     "same": [],
-     "clues": [
-      "sted"
-     ]
-    },
-    {
-     "a": "staled",
-     "b": "allied",
-     "same": [],
-     "clues": [
-      "aled"
-     ]
-    },
-    {
-     "a": "unreal",
-     "b": "reveal",
-     "same": [],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "unreal",
-     "b": "realty",
-     "same": [],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "unreal",
-     "b": "unsure",
-     "same": [],
-     "clues": [
-      "unre"
-     ]
-    },
-    {
-     "a": "unreal",
-     "b": "repeal",
-     "same": [],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "livest",
-     "b": "vestal",
-     "same": [],
-     "clues": [
-      "vest"
-     ]
-    },
-    {
-     "a": "livest",
-     "b": "listed",
-     "same": [],
-     "clues": [
-      "list"
-     ]
-    },
-    {
-     "a": "livest",
-     "b": "relive",
-     "same": [],
-     "clues": [
-      "live"
-     ]
-    },
-    {
-     "a": "livest",
-     "b": "enlist",
-     "same": [],
-     "clues": [
-      "list"
-     ]
-    },
-    {
-     "a": "vestal",
-     "b": "reveal",
-     "same": [],
-     "clues": [
-      "veal"
-     ]
-    },
-    {
-     "a": "lieder",
-     "b": "listed",
-     "same": [],
-     "clues": [
-      "lied"
-     ]
-    },
-    {
-     "a": "lieder",
-     "b": "allied",
-     "same": [],
-     "clues": [
-      "lied"
-     ]
-    },
-    {
-     "a": "surety",
-     "b": "retype",
-     "same": [],
-     "clues": [
-      "rety"
-     ]
-    },
-    {
-     "a": "surety",
-     "b": "realty",
-     "same": [],
-     "clues": [
-      "rety"
-     ]
-    },
-    {
-     "a": "surety",
-     "b": "unsure",
-     "same": [],
-     "clues": [
-      "sure"
-     ]
-    },
-    {
-     "a": "surety",
-     "b": "suture",
-     "same": [],
-     "clues": [
-      "sure"
-     ]
-    },
-    {
-     "a": "listed",
-     "b": "enlist",
-     "same": [],
-     "clues": [
-      "list"
-     ]
-    },
-    {
-     "a": "listed",
-     "b": "allied",
-     "same": [],
-     "clues": [
-      "lied"
-     ]
-    },
-    {
-     "a": "reveal",
-     "b": "realty",
-     "same": [],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "reveal",
-     "b": "relive",
-     "same": [],
-     "clues": [
-      "reve"
-     ]
-    },
-    {
-     "a": "reveal",
-     "b": "repeal",
-     "same": [
-      "delete_middle"
-     ],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "retype",
-     "b": "realty",
-     "same": [],
-     "clues": [
-      "rety"
-     ]
-    },
-    {
-     "a": "retype",
-     "b": "repeal",
-     "same": [],
-     "clues": [
-      "repe"
-     ]
-    },
-    {
-     "a": "realty",
-     "b": "repeal",
-     "same": [],
-     "clues": [
-      "real"
-     ]
-    },
-    {
-     "a": "unsure",
-     "b": "suture",
-     "same": [],
-     "clues": [
-      "sure"
-     ]
-    }
-   ],
-   "metrics": {
-    "delete_first": {
-     "clues": 16,
-     "edges": 0,
-     "clue_bits": 4.0,
-     "disclosure_bits": 0.896240625180289
-    },
-    "delete_middle": {
-     "clues": 15,
-     "edges": 1,
-     "clue_bits": 3.875,
-     "disclosure_bits": 0.896240625180289
-    },
-    "delete_last": {
-     "clues": 16,
-     "edges": 0,
-     "clue_bits": 4.0,
-     "disclosure_bits": 0.896240625180289
-    }
-   },
-   "disclosure_bits": 0.896240625180289,
-   "lexicon_pool_sha256": "1a22c7e34571c6f2ac097f18798bd4c70e95d28844a0342998ffcab36245a102",
-   "studied_bound_bits": 1.005,
-   "ideal_recovery": {
-    "hidden": 28,
-    "shown": 47,
-    "total": 48
-   }
-  },
-  {
    "id": "six32",
    "family": "Six letters · disclosure",
    "name": "32 words",
-   "purpose": "The original 16 words plus 16 additions selected for disclosure across all three pair deletions.",
-   "notes": "All 16 original words keep their menu positions. On the frozen pool of 8,255 forms, the search prioritized the lowest of three rule-specific mean gains. An independently verified ceiling of 0.9479 bits applies to extensions retaining the original 16. The search found a feasible bank. Its global optimality is open. SPREED and LIEDER illustrate the vocabulary trade-off.",
+   "purpose": "32 six-letter words · three pair deletions",
+   "notes": "Words were selected for disclosure across all three deletions. Some forms, including spreed and lieder, are infrequent in the English subtitle corpus.",
    "words": [
     "staled",
     "unreal",
@@ -15940,8 +15506,6 @@
    },
    "disclosure_bits": 0.8815540675321945,
    "lexicon_pool_sha256": "1a22c7e34571c6f2ac097f18798bd4c70e95d28844a0342998ffcab36245a102",
-   "anchor_bank": "six",
-   "studied_anchored_bound_bits": 0.9479,
    "ideal_recovery": {
     "hidden": 51,
     "shown": 84,
